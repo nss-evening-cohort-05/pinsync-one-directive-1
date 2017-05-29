@@ -1,0 +1,56 @@
+{
+  "boards" : {
+    "board0" : {
+      "boardId" : "b0",
+      "title" : "Cars",
+      "uid" : "BCqP0wXysjMVi1P3JW7xTPXk0KC2"
+    },
+    "board1" : {
+      "boardId" : "b1",
+      "title" : "Travel",
+      "uid" : "yw1Qqs4p1vfQjbVTCp0n6p4VXpK2"
+    },
+    "board2" : {
+      "boardId" : "b2",
+      "title" : "Sports",
+      "uid" : "3ZikE2rWvAQCdNJwaaDvJp1ust63"
+    }
+  },
+  "pins" : {
+    "pin0" : {
+      "boardId" : "b0",
+      "imageUrl" : "https://en.wikipedia.org/wiki/Ford_Mustang#/media/File:Ford_Mustang_2005_logo.jpg",
+      "title" : "Mustang",
+      "uid" : "BCqP0wXysjMVi1P3JW7xTPXk0KC2",
+      "url" : "https://en.wikipedia.org/wiki/Ford_Mustang"
+    },
+    "pin1" : {
+      "boardId" : "b2",
+      "imageUrl" : "http://www.wwe.com/worldwide/gallery/premier-league-champions-chelsea-fc-shows-off-custom-wwe-championship-photos#fid-40108613",
+      "title" : "WWE",
+      "uid" : "3ZikE2rWvAQCdNJwaaDvJp1ust63",
+      "url" : "http://www.wwe.com/gallery/20-superstars-you-forgot-were-in-wcw#fid-40110152"
+    },
+    "pin2" : {
+      "boardId" : "b1",
+      "imageUrl" : "http://nordicfoodfestival.org/wp-content/uploads/sites/7/2015/07/iceland-insane.jpg",
+      "title" : "Iceland",
+      "uid" : "yw1Qqs4p1vfQjbVTCp0n6p4VXpK2",
+      "url" : "http://www.iceland.is/"
+    }
+  },
+  "users" : {
+    "user0" : {
+      "uid" : "BCqP0wXysjMVi1P3JW7xTPXk0KC2",
+      "username:" : "a"
+    },
+    "user1" : {
+      "uid" : "yw1Qqs4p1vfQjbVTCp0n6p4VXpK2",
+      "username:" : "b"
+    },
+    "user2" : {
+      "uid" : "3ZikE2rWvAQCdNJwaaDvJp1ust63",
+      "username:" : "c"
+    }
+  }
+}
