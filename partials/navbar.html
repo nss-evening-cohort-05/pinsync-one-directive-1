@@ -1,23 +1,43 @@
-<nav class="main-nav navbar">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">PinApp</a>
-		</div>
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right"> <!-- ng-if="user.uid" -->
-				<li><a ng-href="#!/items/list">Btn 1</a></li>
-				<li><a ng-href="#!/items/new">Btn 2</a></li>
-				<li><a ng-href="#!/logout">Btn 3</a></li>
-				<li><a ng-href="#!/auth">Login/Logout</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right"> <!-- ng-if="!user.uid" -->
-			</ul>
-		</div>
-	</div>
+<nav class="navbar navbar-default pin-nav">
+    <div class="container center">
+        <div class="row">
+            <div class="as col-md-4"></div>
+            <div class="as col-md-4">
+                <p class="logo">Pin Stuff</p>
+            </div>
+            <div class="as col-md-4">
+            </div>
+        </div>
+    </div>
 </nav>
+<div class="input-field container">
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="input-group inputs">
+                <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </span>
+                <input type="text" class="form-control search" placeholder="Search for...">
+            </div>
+            <!-- /input-group -->
+        </div>
+        <!-- /.col-lg-6 -->
+        <div class="filters col-md-6 col-xs-12">
+            <ul>
+                <li>Pin +</li>
+                <li>Boards</li>
+                <li>Logout</li>
+            </ul>
+            <!--         <label class="radio-inline"><input type="radio" name="optradio">Option 1</label>
+        <label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
+        <label class="radio-inline"><input type="radio" name="optradio">Option 3</label> -->
+        </div>
+    </div>
+    <!-- /.row -->
+    <!--   <div class="filters"><p>H</p></div> -->
+</div>
+<!-- <div class="box-container container">
+        <div class="box row">
+            <p>Yay</p>
+        </div>
+    </div> -->
