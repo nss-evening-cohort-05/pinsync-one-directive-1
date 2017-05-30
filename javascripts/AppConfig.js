@@ -7,6 +7,7 @@ app.config(function($routeProvider) {
 	.otherwise("/my-boards");
 });
 
+
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
   if(AuthFactory.isAuthenticated()){
     resolve();
@@ -34,7 +35,7 @@ app.config(function($routeProvider){
     $routeProvider
         .when('/auth', {
             templateUrl: 'partials/auth.html',
-            controller: 'AuthCtrl'
+            controller: 'AppAuthCtrl'
         })
         .when("/my-boards", {
 					templateUrl: "partials/board-list.html",
@@ -63,8 +64,7 @@ app.config(function($routeProvider){
         // })
         .when('/logout', {
             templateUrl: 'partials/auth.html',
-            controller: 'AppAuthCtrl',
-            resolve: {isAuth}
+            controller: 'AppAuthCtrl'
         })
         .otherwise('/auth');
 });
