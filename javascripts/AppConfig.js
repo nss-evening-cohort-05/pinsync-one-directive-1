@@ -8,5 +8,9 @@ app.config(function($routeProvider) {
 		templateUrl: "partials/board-list.html",
 		controller: "BoardListCtrl"
 	})
+	.when("/pins/view/:id", {
+		templateUrl: "partials/pin-view.html",
+		controller: "PinViewCtrl"
+	})
 	.otherwise("/my-boards");
 });

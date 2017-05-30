@@ -1,0 +1,11 @@
+
+<h3>Boards</h3>
+<div ng-repeat="board in boards">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="col-xs-6">{{board.title}}</div>
+      <div class="col-xs-2"><a ng-href="#!/pins/view/{{board.boardId}}">Pins</a></div>
+    </div>
+  </div>
+</div>
+

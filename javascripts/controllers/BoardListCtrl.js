@@ -1,17 +1,16 @@
-app.controller("BoardListCtrl", function($scope, ItemFactory) {
+app.controller("BoardListCtrl", function($scope, BoardFactory) {
 
-	$scope.items = [];
+	$scope.boards = [];
 
-	let getItems = () => {
-		ItemFactory.getItemList().then((itemz) => {
-			console.log ("cntrl" , itemz);
-			// $scope.items = itemz;
+	let getBoards = () => {
+		BoardFactory.getBoardList().then((boardz) => {
+			console.log ("cntrl" , boardz);
+			$scope.boards = boardz;
 		}).catch((error) => {
-			console.log("getItem error" , error)
+			console.log("getBoard error" , error)
 		});
 	};
 
-
-	getItems();
+	getBoards();
 
 });
