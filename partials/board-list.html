@@ -1,3 +1,9 @@
-<h2>Board List Here</h2>
-
-<img src="http://www.homedepot.com/catalog/productImages/1000/aa/aa576f48-d651-4fd1-bc3e-4d7b92186e4a_1000.jpg" alt="board-filler-image">
+<h3>Boards</h3>
+<div ng-repeat="board in boards">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="col-xs-6">{{board.title}}</div>
+      <div class="col-xs-2"><a ng-href="#!/pins/view/{{board.boardId}}">Pins</a></div>
+    </div>
+  </div>
+</div>
