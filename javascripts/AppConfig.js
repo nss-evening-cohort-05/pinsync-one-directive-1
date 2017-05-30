@@ -7,7 +7,6 @@ app.config(function($routeProvider) {
 	.otherwise("/my-boards");
 });
 
-
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
   if(AuthFactory.isAuthenticated()){
     resolve();
