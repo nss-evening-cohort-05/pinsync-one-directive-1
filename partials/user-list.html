@@ -1,8 +1,8 @@
-<h2>Other Friendly Users</h2>
+<h2>Click a user to see their boards.</h2>
 <div ng-repeat="user in allUsers">
   <div class="panel panel-default">
     <div class="panel-body">
-      <div class="col-xs-6">{{user.username}}</div>
+      <div class="col-xs-6"><a ng-href="#!/other-boards" ng-click="getOtherUserBoards(user.uid)">{{user.username}}</a></div>
 			<div><a ng-href="#"></a></div>					<!-- view another users board route within this a tag -->
     </div>
   </div>
