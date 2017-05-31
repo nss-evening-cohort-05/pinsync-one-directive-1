@@ -4,22 +4,12 @@ app.config(function($routeProvider) {
         .otherwise("/my-boards");
 });
 
-<<<<<<< HEAD
-
 let isAuth = (AuthFactory) => new Promise((resolve, reject) => {
     if (AuthFactory.isAuthenticated()) {
         resolve();
     } else {
         reject();
     }
-=======
-let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
-  if(AuthFactory.isAuthenticated()){
-    resolve();
-  } else {
-    reject();
-  }
->>>>>>> a69b905eb15774356aedb75bd1cb4ee983933dc0
 });
 
 app.run(function($location, $rootScope, FIREBASE_CONFIG, AuthFactory) {
@@ -44,40 +34,24 @@ app.config(function($routeProvider) {
             controller: 'AppAuthCtrl'
         })
         .when("/my-boards", {
-<<<<<<< HEAD
             templateUrl: "partials/board-list.html",
             controller: "BoardListCtrl",
             resolve: { isAuth }
-        })
-        .when("/my-boards", {
-            templateUrl: "partials/board-list.html",
-            controller: "BoardListCtrl",
-            resolve: { isAuth }
-
         })
         .when("/pins/view/:id", {
             templateUrl: "partials/pin-view.html",
             controller: "PinViewCtrl",
             resolve: { isAuth }
-=======
-					templateUrl: "partials/board-list.html",
-					controller: "BoardListCtrl",
-          resolve: {isAuth}
-				})
+        })
         .when('/user-list', {
             templateUrl: 'partials/user-list.html',
             controller: 'UserListCtrl',
             resolve: {isAuth}
->>>>>>> a69b905eb15774356aedb75bd1cb4ee983933dc0
         })
         .when('/logout', {
             templateUrl: 'partials/auth.html',
             controller: 'AppAuthCtrl',
-<<<<<<< HEAD
             resolve: { isAuth }
-=======
-            resolve: {isAuth}
->>>>>>> a69b905eb15774356aedb75bd1cb4ee983933dc0
         })
         .otherwise('/auth');
 });
