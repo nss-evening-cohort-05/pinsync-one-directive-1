@@ -31,7 +31,7 @@ app.factory("BoardFactory", function($http, $q, FIREBASE_CONFIG) {
         let boardCollection = fbBoards.data;
         if (boardCollection !== null) {
             Object.keys(boardCollection).forEach((key) => {
-            boardCollection[key].id=key;
+            boardCollection[key].boardId=key;
             boardArray.push(boardCollection[key]);
             console.log ("BoardFactory array" , boardArray);
           });
@@ -52,7 +52,7 @@ app.factory("BoardFactory", function($http, $q, FIREBASE_CONFIG) {
         let boardCollection = fbBoards.data;
         if (boardCollection !== null) {
             Object.keys(boardCollection).forEach((key) => {
-            boardCollection[key].id = key;
+            boardCollection[key].boardId = key;
             boardArray.push(boardCollection[key]);
             console.log ("BoardFactory array" , boardArray);
           });
@@ -64,7 +64,6 @@ app.factory("BoardFactory", function($http, $q, FIREBASE_CONFIG) {
       });
     });
   };
-
 
   let FBpostNewBoard = newBoard => {
     return $q((resolve, reject) => {

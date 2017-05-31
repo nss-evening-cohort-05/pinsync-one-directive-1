@@ -13,4 +13,10 @@ app.controller("BoardListCtrl", function($scope, BoardFactory) {
 
 	getMyBoards();
 
+	let createNewBoard = () => {
+		BoardFactory.FBpostNewBoard()
+		.then(() => getMyBoards())
+		.catch(error => console.log("error in createNewBoard", error));
+	};
+
 });
