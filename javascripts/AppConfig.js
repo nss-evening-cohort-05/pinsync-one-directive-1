@@ -42,10 +42,10 @@ app.config(function($routeProvider){
             controller: 'AppAuthCtrl'
         })
         .when("/my-boards", {
-					templateUrl: "partials/board-list.html",
-					controller: "BoardListCtrl",
+			templateUrl: "partials/board-list.html",
+			controller: "BoardListCtrl",
             resolve: {isAuth}
-				})
+		})
         // .when('/addy/list', {
         //     templateUrl: 'partials/addy-list.html',
         //     controller: 'AddyListCtrl',
@@ -68,7 +68,8 @@ app.config(function($routeProvider){
         // })
         .when('/logout', {
             templateUrl: 'partials/auth.html',
-            controller: 'AppAuthCtrl'
+            controller: 'AppAuthCtrl',
+            resolve: {isAuth}
         })
         .otherwise('/auth');
 });
