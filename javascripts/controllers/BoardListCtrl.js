@@ -2,8 +2,8 @@ app.controller("BoardListCtrl", function($routeParams, $scope, BoardFactory) {
 
 	$scope.boards = [];
 
-	let getBoards = () => {
-		BoardFactory.getBoardList().then((boardz) => {
+	let getMyBoards = () => {
+		BoardFactory.FBgetSingleUserBoards().then((boardz) => {
 			console.log ("cntrl" , boardz);
 			$scope.boards = boardz;
 		}).catch((error) => {
@@ -11,6 +11,12 @@ app.controller("BoardListCtrl", function($routeParams, $scope, BoardFactory) {
 		});
 	};
 
-	getBoards();
+	getMyBoards();
+
+	let createNewBoard = () => {
+		BoardFactory.FBpostNewBoard()
+		.then(() => getMyBoards())
+		.catch(error => console.log("error in createNewBoard", error));
+	};
 
 });
