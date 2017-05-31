@@ -1,4 +1,4 @@
-app.factory("BoardFactory", function($http, $q, FIREBASE_CONFIG) {
+app.factory("BoardFactory", function($http, $q, $routeParams, FIREBASE_CONFIG) {
 
   let getBoardList = () => {
     let boardArray = [];
@@ -23,6 +23,8 @@ app.factory("BoardFactory", function($http, $q, FIREBASE_CONFIG) {
     });
   };
 
-  return {getBoardList:getBoardList};
+  return {
+    getBoardList:getBoardList
+  };
 
 });

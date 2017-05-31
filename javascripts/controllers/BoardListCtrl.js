@@ -1,4 +1,4 @@
-app.controller("BoardListCtrl", function($scope, BoardFactory) {
+app.controller("BoardListCtrl", function($routeParams, $scope, BoardFactory) {
 
 	$scope.boards = [];
 
@@ -7,7 +7,7 @@ app.controller("BoardListCtrl", function($scope, BoardFactory) {
 			console.log ("cntrl" , boardz);
 			$scope.boards = boardz;
 		}).catch((error) => {
-			console.log("getBoard error" , error)
+			console.log("getBoard error" , error);
 		});
 	};
 
