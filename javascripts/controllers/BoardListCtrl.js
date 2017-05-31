@@ -1,9 +1,9 @@
-app.controller("BoardListCtrl", function($routeParams, $scope, BoardFactory) {
+app.controller("BoardListCtrl", function($rootScope, $routeParams, $scope, BoardFactory) {
 
 	$scope.boards = [];
 
 	let getMyBoards = () => {
-		BoardFactory.FBgetSingleUserBoards().then((boardz) => {
+		BoardFactory.FBgetSingleUserBoards($rootScope.user.uid).then((boardz) => {
 			console.log ("cntrl" , boardz);
 			$scope.boards = boardz;
 		}).catch((error) => {

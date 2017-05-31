@@ -1,4 +1,3 @@
-
 app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
 
   let getPinList = (boardId) => {
