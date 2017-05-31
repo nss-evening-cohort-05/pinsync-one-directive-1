@@ -42,15 +42,15 @@
   "users" : {
     "user0" : {
       "uid" : "BCqP0wXysjMVi1P3JW7xTPXk0KC2",
-      "username:" : "a"
+      "username" : "a"
     },
     "user1" : {
       "uid" : "yw1Qqs4p1vfQjbVTCp0n6p4VXpK2",
-      "username:" : "b"
+      "username" : "b"
     },
     "user2" : {
       "uid" : "3ZikE2rWvAQCdNJwaaDvJp1ust63",
-      "username:" : "c"
+      "username" : "c"
     }
   }
 }
