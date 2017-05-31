@@ -11,7 +11,6 @@ app.config(function($routeProvider) {
 	.otherwise("/my-boards");
 });
 
-
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
   if(AuthFactory.isAuthenticated()){
     resolve();
@@ -44,31 +43,17 @@ app.config(function($routeProvider){
         .when("/my-boards", {
 					templateUrl: "partials/board-list.html",
 					controller: "BoardListCtrl",
-            resolve: {isAuth}
+          resolve: {isAuth}
 				})
-        // .when('/addy/list', {
-        //     templateUrl: 'partials/addy-list.html',
-        //     controller: 'AddyListCtrl',
-        //     resolve: {isAuth}
-        // })
-        // .when('/addy/new', {
-        //     templateUrl: 'partials/addy-new.html',
-        //     controller: 'AddyNewCtrl',
-        //     resolve: {isAuth}
-        // })
-        // .when('/addy/view/:id', {
-        //     templateUrl: 'partials/addy-view.html',
-        //     controller: 'AddyViewCtrl',
-        //     resolve: {isAuth}
-        // })
-        // .when('/addy/edit/:id', {
-        //     templateUrl: 'partials/addy-new.html',
-        //     controller: 'AddyEditCtrl',
-        //     resolve: {isAuth}
-        // })
+        .when('/user-list', {
+            templateUrl: 'partials/user-list.html',
+            controller: 'UserListCtrl',
+            resolve: {isAuth}
+        })
         .when('/logout', {
             templateUrl: 'partials/auth.html',
-            controller: 'AppAuthCtrl'
+            controller: 'AppAuthCtrl',
+            resolve: {isAuth}
         })
         .otherwise('/auth');
 });

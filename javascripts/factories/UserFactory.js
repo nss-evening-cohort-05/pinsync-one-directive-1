@@ -33,9 +33,26 @@ app.factory("UserFactory", function($q, $http, FIREBASE_CONFIG) {
     });
   };
 
+    let getAllUsers = () => {
+    return $q((resolve, reject) => {
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/users.json`)
+        .then((userObject) => {
+          let users = [];
+          Object.keys(userObject.data).forEach((key) => {
+            users.push(userObject.data[key]);
+          });
+          resolve(users);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  };
+
   return {
     addUser:addUser, 
-    getUser:getUser
+    getUser:getUser,
+    getAllUsers:getAllUsers
   };
 
 });
