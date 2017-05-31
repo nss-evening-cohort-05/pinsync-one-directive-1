@@ -19,4 +19,12 @@ app.controller("BoardListCtrl", function($routeParams, $scope, BoardFactory) {
 		.catch(error => console.log("error in createNewBoard", error));
 	};
 
+	$scope.deleteBoard = (id) => {
+		BoardFactory.deleteBoard(id).then(() => {
+			getMyBoards();
+		}).catch((error) => {
+			console.log("deleteItem error", error);
+		});
+	};
+
 });

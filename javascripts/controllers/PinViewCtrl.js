@@ -8,4 +8,12 @@ app.controller("PinViewCtrl", function($scope, $routeParams , PinFactory ) {
 		console.log("getPinList", error);
 	});
 
+	$scope.pinChange = (pin) => {
+		PinFactory.getSinglePin(pin).then((results) => {
+			$scope.newPin = results.data;
+			console.log("results.data", $scope.newPin);
+		}).catch((error) => {
+			console.log("getPinItem", error);
+		});
+	};
 });
