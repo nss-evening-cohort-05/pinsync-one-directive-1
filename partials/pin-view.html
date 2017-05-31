@@ -1,9 +1,17 @@
 <h3>Pins</h3>
-<div ng-repeat="pin in pins">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="col-xs-6">{{pin.title}}</div>
-      <div class="col-xs-6">{{pin.imageUrl}}</div>
+<div class="row">
+    <div ng-repeat="pin in pins">
+        <!-- NG-REPEAT GOES HERE -->
+        <div class="clearfix" ng-if="$index % 3 == 0"></div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{pin.title}}</h3>
+                </div>
+                <div class="panel-body">
+                    <img src={{pin.imageUrl}} alt={{pin.title}}>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
