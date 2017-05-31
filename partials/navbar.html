@@ -23,10 +23,14 @@
         </div>
         <!-- /.col-lg-6 -->
         <div class="filters col-md-6 col-xs-12">
-            <ul>
+            <ul ng-if="user.uid">
                 <li><a>Pin +</a></li>
-                <li><a href="#!/board-list">Boards</a></li>
-                <li><a href="#!/logout">Logout</a></li>
+                <li><a ng-href="#!/board-list">My Boards</a></li>
+                <li><a ng-href="#!/user-list">Other Boards</a></li>
+                <li><a ng-href="#!/logout">Logout</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-if="!user.uid">
+                <li><a href="#!/auth">Login Page</a></li>
             </ul>
             <!--         <label class="radio-inline"><input type="radio" name="optradio">Option 1</label>
         <label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
