@@ -33,9 +33,9 @@ app.factory("UserFactory", function($q, $http, FIREBASE_CONFIG) {
     });
   };
 
-    let getAllUsers = () =>{
+    let getAllUsers = () => {
+    console.log("inside getAllUsers");
     return $q((resolve, reject) => {
-      console.log("inside getAllUsers");
       $http.get(`${FIREBASE_CONFIG.databaseURL}/users.json`)
         .then((userObject) => {
           let users = [];

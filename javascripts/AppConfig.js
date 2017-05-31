@@ -43,7 +43,7 @@ app.config(function($routeProvider){
         .when("/my-boards", {
 					templateUrl: "partials/board-list.html",
 					controller: "BoardListCtrl",
-            resolve: {isAuth}
+          resolve: {isAuth}
 				})
         .when('/user-list', {
             templateUrl: 'partials/user-list.html',
@@ -52,7 +52,8 @@ app.config(function($routeProvider){
         })
         .when('/logout', {
             templateUrl: 'partials/auth.html',
-            controller: 'AppAuthCtrl'
+            controller: 'AppAuthCtrl',
+            resolve: {isAuth}
         })
         .otherwise('/auth');
 });
