@@ -14,7 +14,7 @@ app.controller("BoardListCtrl", function($scope, BoardFactory) {
 	getBoards();
 
 	$scope.deleteBoard = (id) => {
-		BoardFactory.deletz(id).then(() => {
+		BoardFactory.deleteBoard(id).then(() => {
 			getMyBoards();
 		}).catch((error) => {
 			console.log("deleteItem error", error);

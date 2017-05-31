@@ -2,8 +2,17 @@
 <div ng-repeat="pin in pins">
   <div class="panel panel-default">
     <div class="panel-body">
-      <div class="col-xs-6">{{pin.title}}</div>
+      <div class="col-xs-6" ng-show="!editing">
+	      {{pin.title}}
+	      <button class="btn btn-sm btn-info" ng-click="editing = !editing; contactChange(contact.id)"><i class=" fa fa-pencil"></i></button>
+      </div>
+      <div class="col-xs-6" ng-show="editing">
+		<input ng-model="pin.t" type="text">
+		<button class="btn btn-sm btn-success" ng-click="editing = false; addNewContact()"><i class=" fa fa-save"></i></button>
+		<button class="btn btn-sm btn-danger" ng-click="deleteContact(contact.id)"><i class=" fa fa-trash"></i></button>
+      </div>      
       <div class="col-xs-6">{{pin.imageUrl}}</div>
     </div>
   </div>
 </div>
+
