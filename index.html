@@ -1,41 +1,42 @@
 <!doctype html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PinApp</title>
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Paaji" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
-    <link rel="stylesheet" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/main.css">
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>PinApp</title>
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Paaji" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
+        <link rel="stylesheet" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles/main.css">
+    </head>
 
-<body ng-app="PinApp">
-    <div ng-include="'partials/navbar.html'"></div>
-    <main ng-view class="container"></main>
-    <!-- THIRD PARTY / DEPENDENCIES -->
-    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-    <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
-    <!-- APP CONFIG -->
-    <script type="text/javascript" src="javascripts/app.js"></script>
-    <script type="text/javascript" src="javascripts/AppConstants.js"></script>
-    <script type="text/javascript" src="javascripts/AppConfig.js"></script>
-    <!-- FACTORIES -->
-    <script type="text/javascript" src="javascripts/factories/AuthFactory.js"></script>
-    <script type="text/javascript" src="javascripts/factories/UserFactory.js"></script>
-    <script type="text/javascript" src="javascripts/factories/BoardFactory.js"></script>
-    <script type="text/javascript" src="javascripts/factories/PinFactory.js"></script>
-    <!-- CONTROLLERS -->
-    <script type="text/javascript" src="javascripts/controllers/AppAuthCtrl.js"></script>
-    <script type="text/javascript" src="javascripts/controllers/BoardListCtrl.js"></script>
-    <script type="text/javascript" src="javascripts/controllers/PinViewCtrl.js"></script>
-    <script type="text/javascript" src="javascripts/controllers/PinNewCtrl.js"></script>
-    <script type="text/javascript" src="javascripts/controllers/PinEditCtrl.js"></script>
-</body>
+    <body ng-app="PinApp">
+        <div ng-include="'partials/navbar.html'"></div>
+        <main ng-view class="container"></main>
+        <!-- THIRD PARTY / DEPENDENCIES -->
+        <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+        <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
+        <!-- APP CONFIG -->
+        <script type="text/javascript" src="javascripts/app.js"></script>
+        <script type="text/javascript" src="javascripts/AppConstants.js"></script>
+        <script type="text/javascript" src="javascripts/AppConfig.js"></script>
+        <!-- FACTORIES -->
+        <script type="text/javascript" src="javascripts/factories/AuthFactory.js"></script>
+        <script type="text/javascript" src="javascripts/factories/UserFactory.js"></script>
+        <script type="text/javascript" src="javascripts/factories/BoardFactory.js"></script>
+        <script type="text/javascript" src="javascripts/factories/PinFactory.js"></script>
+        <!-- CONTROLLERS -->
+        <script type="text/javascript" src="javascripts/controllers/AppAuthCtrl.js"></script>
+        <script type="text/javascript" src="javascripts/controllers/UserListCtrl.js"></script>
+        <script type="text/javascript" src="javascripts/controllers/BoardListCtrl.js"></script>
+        <script type="text/javascript" src="javascripts/controllers/PinViewCtrl.js"></script>
+        <script type="text/javascript" src="javascripts/controllers/PinNewCtrl.js"></script>
+        <script type="text/javascript" src="javascripts/controllers/PinEditCtrl.js"></script>
+    </body>
 
 </html>

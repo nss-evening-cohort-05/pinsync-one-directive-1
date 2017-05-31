@@ -1,4 +1,4 @@
-app.factory("BoardFactory", function($http, $q, FIREBASE_CONFIG) {
+app.factory("BoardFactory", function($http, $q, $routeParams, FIREBASE_CONFIG) {
 
   //THESE FUNCTIONS HAVE BEEN WRITTEN BUT NOT TESTED
 
@@ -65,6 +65,7 @@ app.factory("BoardFactory", function($http, $q, FIREBASE_CONFIG) {
     });
   };
 
+
   let FBpostNewBoard = newBoard => {
     return $q((resolve, reject) => {
       $http.post(`${FIREBASE_CONFIG.databaseURL}/boards.json`,
@@ -96,5 +97,6 @@ app.factory("BoardFactory", function($http, $q, FIREBASE_CONFIG) {
   };
 
   return {FBgetSingleUserBoards:FBgetSingleUserBoards, FBgetAllPublicBoards:FBgetAllPublicBoards, FBpostNewBoard:FBpostNewBoard, FBdeleteBoard: FBdeleteBoard, FBeditBoard:FBeditBoard};
+
 
 });

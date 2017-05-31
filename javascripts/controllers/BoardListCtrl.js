@@ -1,4 +1,4 @@
-app.controller("BoardListCtrl", function($scope, BoardFactory) {
+app.controller("BoardListCtrl", function($routeParams, $scope, BoardFactory) {
 
 	$scope.boards = [];
 
