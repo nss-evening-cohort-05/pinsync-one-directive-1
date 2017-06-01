@@ -25,7 +25,7 @@
         <div class="filters col-md-6 col-xs-12">
             <ul ng-if="user.uid">
                 <li><a>Pin +</a></li>
-                <li><a ng-href="#!/boards/:uid">My Boards</a></li>
+                <li><a ng-href="#!/boards/{$rootScope.user.uid}">My Boards</a></li>
                 <li><a ng-href="#!/user-list">Other Boards</a></li>
                 <li><a ng-href="#!/logout">Logout</a></li>
             </ul>

@@ -10,7 +10,7 @@ app.controller("BoardListCtrl", function($rootScope, $routeParams, $scope, Board
 
 	let getBoards = () => {
 		BoardFactory.FBgetSingleUserBoards($routeParams.uid).then((boardz) => {
-			console.log ("cntrl" , boardz);
+			console.log ("Boards from getBoards: " , boardz);
 			$scope.boards = boardz;
 		}).catch((error) => {
 			console.log("getBoard error" , error);

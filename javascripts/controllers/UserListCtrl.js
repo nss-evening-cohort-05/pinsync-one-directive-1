@@ -1,7 +1,6 @@
 app.controller("UserListCtrl", function($routeParams, $scope, BoardFactory, UserFactory) {
 
 	$scope.allUsers = [];
-	// $scope.boards = [];
 
 	let getListOfUsers = () => {
 	 	UserFactory.getAllUsers().then((results) => {
@@ -12,14 +11,5 @@ app.controller("UserListCtrl", function($routeParams, $scope, BoardFactory, User
 	};
 
 	getListOfUsers();
-
-	// $scope.getOtherUserBoards = (uid) => {
-	// 	BoardFactory.FBgetSingleUserBoards(uid).then((otherUserBoards) => {
-	// 		console.log("other user's boards: ", otherUserBoards);
-	// 		$scope.boards = otherUserBoards;																			// CONTINUE HERE
-	// 	}).catch((error) => {
-	// 		console.log("error getting another user's boards", error);
-	// 	});
-	// };
 
 });
