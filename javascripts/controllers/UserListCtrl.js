@@ -1,4 +1,4 @@
-app.controller("UserListCtrl", function($routeParams, $scope, BoardFactory, UserFactory) {
+app.controller("UserListCtrl", function($routeParams, $scope, UserFactory) {
 
 	$scope.allUsers = [];
 
