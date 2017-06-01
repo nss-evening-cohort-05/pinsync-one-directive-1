@@ -2,8 +2,7 @@
 <div ng-repeat="user in allUsers">
   <div class="panel panel-default">
     <div class="panel-body">
-      <div class="col-xs-6"><a ng-href="#!/other-boards" ng-click="getOtherUserBoards(user.uid)">{{user.username}}</a></div>
-			<div><a ng-href="#"></a></div>					<!-- view another users board route within this a tag -->
+      <div class="col-xs-6"><a ng-href="#!/boards/{{user.uid}}">{{user.username}}</a></div>
     </div>
   </div>
 </div>
