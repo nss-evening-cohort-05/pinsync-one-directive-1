@@ -59,3 +59,10 @@ body {
   .filters ul li {
     display: inline;
     list-style-type: none; }
+
+.auth-box {
+  margin-top: 10%;
+  border: 1px solid gray;
+  padding: 60px;
+  background-color: white;
+  border-radius: 3px; }
