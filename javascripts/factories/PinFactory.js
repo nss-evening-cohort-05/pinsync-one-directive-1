@@ -1,5 +1,8 @@
 app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
 
+  //**************************************
+  // get pins list 
+  //**************************************
   let getPinList = (boardId) => {
     let pinArray = [];
     return $q((resolve, reject) => {
@@ -24,6 +27,23 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
     });
   };
 
-  return {getPinList:getPinList};
+
+  //**************************************
+  // post new pin
+  //**************************************
+  let postNewPin = (newPin) => {
+    return $q((resolve, reject) =>{
+      $http.post(`${FIREBASE_CONFIG.databaseURL}/pins.json`, JSON.stringify(newPin))
+        .then((resultz) => {
+          resolve(resultz);
+        }).catch((error) => {
+          reject(error);
+        });
+    });
+  };
+  //
+
+  return {getPinList:getPinList,
+          postNewPin:postNewPin};
 
 });

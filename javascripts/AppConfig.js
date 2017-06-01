@@ -53,6 +53,11 @@ app.config(function($routeProvider) {
             controller: "PinViewCtrl",
             resolve: { isAuth }
         })
+        .when('/pin/new/:id', {
+            templateUrl: 'partials/pin-new.html',
+            controller: 'PinNewCtrl',
+            resolve : {isAuth}
+        })
         .when('/user-list', {
             templateUrl: 'partials/user-list.html',
             controller: 'UserListCtrl',
