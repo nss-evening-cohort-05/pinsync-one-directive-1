@@ -20,7 +20,7 @@ app.controller("AppAuthCtrl", function($location, $rootScope, $scope, AuthFactor
 			console.log(error);
 		}).then((user) => {
 			$rootScope.user = user;
-			$location.url('/my-boards');
+			$location.url('/boards/{{$rootScope.user.uid}}');
 		}).catch((error) => {
 			console.log(error);
 		});

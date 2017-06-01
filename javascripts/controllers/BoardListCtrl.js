@@ -2,8 +2,14 @@ app.controller("BoardListCtrl", function($rootScope, $routeParams, $scope, Board
 
 	$scope.boards = [];
 
-	let getMyBoards = () => {
-		BoardFactory.FBgetSingleUserBoards($rootScope.user.uid).then((boardz) => {
+	// load boards for whatever uid was called
+	// if uid matches $rootScope.user.uid then user will have full edit permissions
+	// if uid does not match $rootScope.user.uid then user will only be able to view and add pins from displayed boards
+
+	// $rootScope.user.uid was initially being passed into FBgetSingleUserBoards
+
+	let getBoards = () => {
+		BoardFactory.FBgetSingleUserBoards($routeParams.uid).then((boardz) => {
 			console.log ("cntrl" , boardz);
 			$scope.boards = boardz;
 		}).catch((error) => {
@@ -11,7 +17,7 @@ app.controller("BoardListCtrl", function($rootScope, $routeParams, $scope, Board
 		});
 	};
 
-	getMyBoards();
+	getBoards();
 
 	let createNewBoard = () => {
 		BoardFactory.FBpostNewBoard()
