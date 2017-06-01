@@ -76,6 +76,7 @@ app.factory("BoardFactory", function($http, $q, $routeParams, FIREBASE_CONFIG) {
   };
 
   let FBdeleteBoard = boardId => {
+    console.log("FBdeleteBoard running. BoardId is", boardId);
     return $q((resolve, reject) => {
       $http.delete(`${FIREBASE_CONFIG.databaseURL}/boards/${boardId}.json`)
       .then(result => resolve(result))
