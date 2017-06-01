@@ -19,7 +19,7 @@ app.controller("UserListCtrl", function($routeParams, $scope, BoardFactory, User
 			$scope.boards = otherUserBoards;
 		}).catch((error) => {
 			console.log("error getting another user's boards", error);
-		})
+		});
 	};
 
 });
