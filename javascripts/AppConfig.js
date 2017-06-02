@@ -38,15 +38,9 @@ app.config(function($routeProvider) {
             controller: "BoardListCtrl",
             resolve: { isAuth }
         })
-        // .when("/other-boards", {
-        //     templateUrl: "partials/board-list.html",
-        //     controller: "UserListCtrl",	// could be refactored into BoardListCtrl, geMyBoards() reused to get other boards too
-        //     resolve: { isAuth }
-        // })
         .when("/boards/:uid", {
             templateUrl: "partials/board-list.html",
-            controller: "BoardListCtrl", // could be refactored into BoardListCtrl, geMyBoards() reused to get other boards too
-            resolve: { isAuth }
+            controller: "BoardListCtrl",
         })
         .when("/pins/view/:id", {
             templateUrl: "partials/pin-view.html",
