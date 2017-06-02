@@ -14,17 +14,16 @@
     <div class="row">
         <div class="col-md-6 col-xs-12">
             <div class="input-group inputs">
-                <span class="input-group-btn">
+                <span class="input-group-btn" ng-if="user.uid">
           <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                 </span>
-                <input type="text" class="form-control search" placeholder="Search for...">
+                <input type="text" class="form-control search" ng-model="searchText" placeholder="Search for..." ng-if="user.uid">
             </div>
             <!-- /input-group -->
         </div>
         <!-- /.col-lg-6 -->
         <div class="filters col-md-6 col-xs-12">
             <ul ng-if="user.uid">
-                <li><a>Pin +</a></li>
                 <li><a ng-href="#!/boards/{{user.uid}}">My Boards</a></li>
                 <li><a ng-href="#!/user-list">Other Boards</a></li>
                 <li><a ng-href="#!/logout">Logout</a></li>
