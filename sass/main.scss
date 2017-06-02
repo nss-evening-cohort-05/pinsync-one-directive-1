@@ -111,11 +111,24 @@ body {
     text-align: center;
 }
 
+///////////////// animations /////////////////////////
+
 main.ng-enter {
-  transition:0.3s linear all;
-  opacity:0;
+    transition:0.3s linear all;
+    opacity:0;
 }
 
 main.ng-enter.ng-enter-active {
-  opacity:1;
+    opacity:1;
+}
+
+allUsers.user-in-list.ng-enter{                         // testing these two
+    transition:0.3s linear all;
+    opacity:0;
+    transform: translateY(30px);
+}
+
+allUsers.user-in-list.ng-enter.ng-enter-active {
+    opacity: 1;
+    transform: translateY(0);
 }
