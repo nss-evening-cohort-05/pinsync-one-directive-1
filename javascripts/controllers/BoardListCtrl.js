@@ -16,8 +16,9 @@ app.controller("BoardListCtrl", function($rootScope, $routeParams, $scope, Board
 	// $rootScope.user.uid was initially being passed into FBgetSingleUserBoards
 
 	let getBoards = () => {
-		BoardFactory.FBgetSingleUserBoards($routeParams.uid).then((boardz) => {
-			$scope.boards = boardz;
+		BoardFactory.FBgetSingleUserBoards($routeParams.uid).then(boards => {
+			$scope.boards = boards;
+			console.log(boards);
 		}).catch((error) => {
 			console.log("getBoard error" , error);
 		});

@@ -48,18 +48,17 @@ app.factory("BoardFactory", function($http, $q, $routeParams, FIREBASE_CONFIG) {
     let targetBoard = {};
     return $q((resolve, reject) => {
       $http.get(`${FIREBASE_CONFIG.databaseURL}/boards.json?orderBy="uid"&equalTo="${uid}"`)
-      .then((usersBoards) => {
+      .then(usersBoards => {
         usersBoards = usersBoards.data;
         if (usersBoards !== null) {
-            Object.keys(usersBoards).forEach((key) => {
+            Object.keys(usersBoards).forEach(key => {
             usersBoards[key].boardId = key;
             boardArray.push(usersBoards[key]);
-            console.log ("BoardFactory array" , boardArray);
           });
         }
         boardArray.forEach(each => {
-          if (each.boardId === bid) {
-          targetBoard.push(each);
+          if (each.boardId == bid) {
+            targetBoard = each;
           }
         });
         resolve(targetBoard);
