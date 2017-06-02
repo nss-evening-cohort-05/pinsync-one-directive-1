@@ -69,3 +69,10 @@ body {
 
 .alert-danger {
   text-align: center; }
+
+main.ng-enter {
+  transition: 0.3s linear all;
+  opacity: 0; }
+
+main.ng-enter.ng-enter-active {
+  opacity: 1; }
