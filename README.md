@@ -15,14 +15,16 @@ In teams our task was to reverse engineer the basic functionality of Pinterest a
  - cd into lib
  - Run command "bower install"
  - Run command "npm install"
- - Seed database/seed.json to firebase with read & write permissions
+ - Run bower install angular-animate --save
+ - Run bower install angular-sanitize --save
  - Run grunt
+ - Seed database/seed.json to firebase with read & write permissions
 
 <hr>
 
 ## Priorities
 
-1. Firebase structure. Flat, flat, flat.
+1. Flat firebase structure.
 2. Authentication.
 3. Create board.
 4. Create pin to go on a board.
