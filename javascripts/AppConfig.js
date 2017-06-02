@@ -34,8 +34,7 @@ app.config(function($routeProvider) {
         // })
         .when("/boards/:uid", {
             templateUrl: "partials/board-list.html",
-            controller: "BoardListCtrl", // could be refactored into BoardListCtrl, geMyBoards() reused to get other boards too
-            resolve: { isAuth }
+            controller: "BoardListCtrl",
         })
         .when("/boards/:uid/pins/:boardId", {
             templateUrl: "partials/pin-view.html",
