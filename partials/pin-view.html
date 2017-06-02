@@ -1,4 +1,16 @@
-<h3>Pins</h3>
+<div class="col-sm-4">
+    <h3 ng-if="isOwner">My Boards</h3>
+    <h3 ng-if="!isOwner">{{ownerUsername}}'s Boards</h3>
+</div>
+<div class="col-sm-2 col-sm-offset-6" ng-if="isOwner">
+    <h3>
+        <button class="btn btn-success">
+            <a ng-href="#!/pin/new/{{board.id}}">
+                New Board
+            </a>
+        </button>
+    </h3>
+</div>
 <div class="row">
     <div ng-repeat="pin in pins">
         <!-- NG-REPEAT GOES HERE -->
