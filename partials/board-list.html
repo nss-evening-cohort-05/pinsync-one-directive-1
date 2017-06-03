@@ -4,11 +4,14 @@
 </div>
 <div class="col-sm-2 col-sm-offset-6" ng-if="isOwner">
     <h3>
-        <button class="btn btn-success">
-            <a ng-href="#!/pin/new/{{board.boardId}}">
-                New Board
-            </a>
-        </button>
+        <button uib-popover-template="createNewBoardPopover.templateUrl" popover-title="What should we call it?" type="button" class="btn btn-default">New Board</button>
+        <script type="text/ng-template" id="newBoardPopover.html">
+            <div class="form-group">
+                <form ng-submit="addBoard()">
+                    <input type="text" ng-model="createNewBoardPopover.userTitle" class="form-control" ng-keyup="$event.keyCode == 13 && addBoard()">
+                </form>
+            </div>
+        </script>
     </h3>
 </div>
 <div class="row">
