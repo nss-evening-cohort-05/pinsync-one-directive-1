@@ -15,8 +15,6 @@ In teams our task was to reverse engineer the basic functionality of Pinterest a
  - cd into lib
  - Run command "bower install"
  - Run command "npm install"
- - Run bower install angular-animate --save
- - Run bower install angular-sanitize --save
  - Run grunt
  - Seed database/seed.json to firebase with read & write permissions
 

@@ -80,6 +80,9 @@ body {
 .alert-danger {
   text-align: center; }
 
+.for-pins {
+  padding: 20px; }
+
 main.ng-enter {
   transition: 0.3s linear all;
   opacity: 0; }
