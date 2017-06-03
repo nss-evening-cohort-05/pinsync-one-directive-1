@@ -18,7 +18,21 @@
         <div class="col-sm-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{pin.title}}</h3>
+                    <h3 class="panel-title" ng-show="!editing">
+	                    {{pin.title}}
+                        <button class="btn btn-sm btn-info" ng-click="editing = !editing">
+                            <i class="fa fa-pencil"></i>
+                        </button>
+                    </h3>
+                    <h3 ng-show="editing">
+                        <input ng-model="pin.title" type="text">
+                            <button class="btn btn-sm btn-success" ng-click="editing = false; addNewPin()">
+                                <i class=" fa fa-save"></i>
+                            </button>
+	                        <button class="btn btn-sm btn-danger" ng-click="deletePin(pin.id)">
+		                        <i class="fa fa-trash"></i>
+	                        </button>
+                    </h3>
                 </div>
                 <div class="panel-body">
                     <img class="img-responsive" src="{{pin.imageUrl}}" alt="{{pin.title}}">
