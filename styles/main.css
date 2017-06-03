@@ -72,6 +72,10 @@ body {
   padding: 60px;
   background-color: white;
   border-radius: 3px; }
+  .auth-box input {
+    margin: 3px; }
+  .auth-box a {
+    border-radius: 0px; }
 
 .alert-danger {
   text-align: center; }
@@ -91,9 +95,3 @@ allUsers.user-in-list.ng-enter {
 allUsers.user-in-list.ng-enter.ng-enter-active {
   opacity: 1;
   transform: translateY(0); }
-
-  .auth-box input {
-    margin: 3px; }
-  .auth-box a {
-    border-radius: 0px; }
-
