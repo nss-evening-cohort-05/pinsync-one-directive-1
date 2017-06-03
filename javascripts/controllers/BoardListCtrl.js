@@ -1,4 +1,6 @@
-app.controller("BoardListCtrl", function($rootScope, $routeParams, $scope, BoardFactory, UserFactory) {
+app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $scope, BoardFactory, UserFactory) {
+
+
 
 	//The following is the flag that controls whether the user sees things like "Add Board", etc.
 	//Feel free to re-use any time you need different views depending on who's logged in
@@ -40,4 +42,19 @@ app.controller("BoardListCtrl", function($rootScope, $routeParams, $scope, Board
 		});
 	};
 
+	//For the Popover
+	$scope.createNewBoardPopover = {
+    templateUrl: 'newBoardPopover.html',
+    userTitle: ''
+  };
+
+  $scope.addBoard = () => {
+  	let newBoard = {
+  		title: $scope.createNewBoardPopover.userTitle,
+  		uid: $rootScope.user.uid
+  	};
+  	BoardFactory.FBpostNewBoard(newBoard)
+  	.then(response => $location.url(`boards/${$rootScope.user.uid}/pins/${response.data.name}`))
+  	.catch(error => console.log("error in FBpostNewBoard in addBoard in BoardListCtrl", error));
+  };
 });

@@ -103,5 +103,4 @@ app.factory("BoardFactory", function($http, $q, $routeParams, FIREBASE_CONFIG) {
 
   return {FBgetSingleUserBoards:FBgetSingleUserBoards, FBgetSingleBoard: FBgetSingleBoard, FBgetAllPublicBoards:FBgetAllPublicBoards, FBpostNewBoard:FBpostNewBoard, FBdeleteBoard: FBdeleteBoard, FBeditBoard:FBeditBoard};
 
-
 });
