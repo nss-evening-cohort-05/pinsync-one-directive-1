@@ -28,7 +28,6 @@ app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, BoardFa
 
 
 	$scope.deletePin = (id) => {
-		console.log("deletePin running.  id passed is", id);
 		PinFactory.FBdeletePin(id).then(() => {
 				getPins();
 		}).catch((error) => {

@@ -40,7 +40,6 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
   
 
   let FBdeletePin = pinId => {
-    console.log("FBdeletePin running. pinId is", pinId);
     return $q((resolve, reject) => {
       $http.delete(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`)
       .then(result => resolve(result))
