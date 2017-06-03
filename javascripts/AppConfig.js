@@ -41,7 +41,7 @@ app.config(function($routeProvider) {
             controller: 'PinNewCtrl',
             resolve : {isAuth}
         })
-        .when('/pin/edit/:id',{
+        .when("/boards/:uid/pins/:boardId/edit/:id",{
             templateUrl: 'partials/pin-new.html',
             controller: 'PinEditCtrl',
             resolve: {isAuth}

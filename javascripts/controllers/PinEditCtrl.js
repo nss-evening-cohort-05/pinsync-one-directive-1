@@ -1,13 +1,30 @@
-app.controller("PinEditCtrl", function() {
+app.controller("PinEditCtrl", function($routeParams, $scope, $location, $rootScope, PinFactory, UserFactory ) {
 
-	$scope.newTask = {};
+	// $scope.newPin = {};
+	// $scope.boards = [];
 
-  ItemFactory.getSingleItem($routeParams.id).then((results) => {
-    $scope.newTask = results.data;
-  	console.log("get single item results", results);
-    results.data.dueDate = new Date(results.data.dueDate);
-  }).catch((error) => {
-  	console.log("getSingleItem", error);
-  });
-  
+	// $scope.isOwner = $routeParams.uid === $rootScope.user.uid ? true : false;
+	// $scope.ownerUsername = "";
+	// UserFactory.getUser($routeParams.uid)
+	// .then(user => $scope.ownerUsername = user.username)
+	// .catch(error => console.log("Error in getUser in BoardListCtrl", error));
+
+
+	PinFactory.getSinglePin($routeParams.id).then((results) => {
+		$scope.newPin = results.data;
+		console.log("get single pin results", results);
+		}).catch((error) => {
+		console.log("getSinglePin", error);
+	});
+
+	$scope.addNewPin = () => {
+		console.log("PinNewCtrl" , $routeParams);
+		PinFactory.editPin($scope.newPin).then(() => {
+			$scope.newPin = {};
+			$location.url(`boards/${$rootScope.user.uid}/pins/${$routeParams.boardId}`);
+		}).catch((error) => {
+			console.log("Add error", error);
+		});
+	};
+
 });

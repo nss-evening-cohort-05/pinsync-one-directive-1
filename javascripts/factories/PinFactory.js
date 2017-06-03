@@ -50,6 +50,21 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
   //**************************************
   // edit pin
   //**************************************
+
+  let getSinglePin = (id) => {
+    return $q((resolve, reject) => {
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins/${id}.json`)
+      .then((results) => {
+        results.data.id = id;
+          resolve(results);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+    });
+  };
+
+
   let editPin = (pin) => {
     return $q((resolve, reject) => {
       $http.put(`${FIREBASE_CONFIG.databaseURL}/pins/${pin.id}.json`, 
@@ -68,6 +83,7 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
     });
   };
   return {getPinList:getPinList,
+          getSinglePin:getSinglePin,
           postNewPin:postNewPin,
           FBdeletePin:FBdeletePin,
           editPin:editPin};
