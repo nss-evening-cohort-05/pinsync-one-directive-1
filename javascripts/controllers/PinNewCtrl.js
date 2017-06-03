@@ -2,6 +2,12 @@ app.controller("PinNewCtrl", function($rootScope, $routeParams, $http, $location
 //*********************************
 //* Add new pin
 //*********************************
+
+$scope.newPin = {
+	imageUrl: "",
+	url: ""
+};
+
 	$scope.addNewPin = () => {
 		console.log("PinNewCtrl" , $routeParams);
 		$scope.newPin.boardId = $routeParams.boardId;
