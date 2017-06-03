@@ -6,7 +6,6 @@ app.controller("PinNewCtrl", function($rootScope, $routeParams, $http, $location
 		console.log("PinNewCtrl" , $routeParams);
 		$scope.newPin.boardId = $routeParams.boardId;
 		$scope.newPin.uid = $rootScope.user.uid;
-		$scope.newPin.imageUrl = " ";
 		PinFactory.postNewPin($scope.newPin).then(() => {
 			$scope.newPin = {};
 			$location.url(`boards/${$rootScope.user.uid}/pins/${$routeParams.boardId}`);
