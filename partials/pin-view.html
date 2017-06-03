@@ -20,6 +20,10 @@
                 <div class="panel-heading">
                     <h3 class="panel-title for-pins" ng-show="!editing">
 	                    {{pin.title}}
+                        <button class="btn btn-sm btn-info" ng-if="!isOwner">
+                            <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+                        </button>
+
                         <button class="btn btn-sm btn-info" ng-if="isOwner" ng-click="editing = !editing">
                             <i class="fa fa-pencil"></i>
                         </button>
