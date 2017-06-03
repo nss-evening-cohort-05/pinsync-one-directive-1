@@ -89,13 +89,12 @@ app.factory("BoardFactory", function($http, $q, $routeParams, FIREBASE_CONFIG) {
   };
 
   let FBeditBoard = board => {
+    let boardId = board.boardId;
+    delete board.boardId;
+
     return $q((resolve, reject) => {
-      $http.put(`${FIREBASE_CONFIG.databaseURL}/boards/${board.boardId}.json`,
-        JSON.stringify({
-          boardId: board.boardId,
-          uid: board.uid,
-          title: board.title
-        }))
+      $http.put(`${FIREBASE_CONFIG.databaseURL}/boards/${boardId}.json`,
+        JSON.stringify(board))
       .then(result => resolve(result))
       .catch(error => reject(error));
     });

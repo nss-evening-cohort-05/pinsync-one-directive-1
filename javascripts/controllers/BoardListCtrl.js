@@ -10,6 +10,7 @@ app.controller("BoardListCtrl", function($rootScope, $routeParams, $scope, Board
 
 	$scope.boards = [];
 
+
 	// load boards for whatever uid was called
 	// if uid matches $rootScope.user.uid then user will have full edit permissions
 	// if uid does not match $rootScope.user.uid then user will only be able to view and add pins from displayed boards
@@ -39,5 +40,36 @@ app.controller("BoardListCtrl", function($rootScope, $routeParams, $scope, Board
 			console.log("deleteItem error", error);
 		});
 	};
+
+	$scope.changeBoard = (boardID, boardTitle) => {
+		let tempBoard = {
+						boardId: boardID,
+						uid: $rootScope.user.uid,
+						title: boardTitle
+		};
+		BoardFactory.FBeditBoard(tempBoard).then(() => {
+			getBoards();
+		}).catch((error) => {
+			console.log("changeBoard error", error);
+		});
+		};
+
+
+	// $scope.boardChange = (boardId) => {
+	// 	console.log("boardChange...boardId", boardId);
+	// 	BoardFactory.FBgetSingleBoard(boardId).then((results) => {
+	// 		$scope.newBoard = results.data;
+	// 		console.log("results.data", $scope.newBoard);
+	// 	}).catch((error) => {
+	// 		console.log("getSingleItem", error);
+	// 	});
+	// };
+
+	// $scope.editBoard = () => {
+	// 	console.log("create NewBoard running... Scope.newBoard", $scope.newBoard);
+	// 	BoardFactory.FBeditBoard($scope.newBoard)
+	// 	.then(() => getBoards())
+	// 	.catch(error => console.log("error in createNewBoard", error));
+	// };
 
 });
