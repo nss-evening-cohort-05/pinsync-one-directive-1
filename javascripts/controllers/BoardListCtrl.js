@@ -12,6 +12,7 @@ app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $s
 
 	$scope.boards = [];
 
+
 	// load boards for whatever uid was called
 	// if uid matches $rootScope.user.uid then user will have full edit permissions
 	// if uid does not match $rootScope.user.uid then user will only be able to view and add pins from displayed boards
@@ -57,4 +58,18 @@ app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $s
   	.then(response => $location.url(`boards/${$rootScope.user.uid}/pins/${response.data.name}`))
   	.catch(error => console.log("error in FBpostNewBoard in addBoard in BoardListCtrl", error));
   };
+
+	$scope.changeBoard = (boardID, boardTitle) => {
+		let tempBoard = {
+						boardId: boardID,
+						uid: $rootScope.user.uid,
+						title: boardTitle
+		};
+		BoardFactory.FBeditBoard(tempBoard).then(() => {
+			getBoards();
+		}).catch((error) => {
+			console.log("changeBoard error", error);
+		});
+		};
+
 });
