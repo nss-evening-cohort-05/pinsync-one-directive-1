@@ -37,9 +37,18 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
         });
     });
   };
-  //
+  
+
+  let FBdeletePin = pinId => {
+    return $q((resolve, reject) => {
+      $http.delete(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`)
+      .then(result => resolve(result))
+      .catch(error => reject(error));
+    });
+  };
 
   return {getPinList:getPinList,
-          postNewPin:postNewPin};
+          postNewPin:postNewPin,
+          FBdeletePin:FBdeletePin};
 
 });
