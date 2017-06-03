@@ -20,9 +20,10 @@
                 <div class="panel-heading">
                     <h3 class="panel-title for-pins" ng-show="!editing">
 	                    {{pin.title}}
-                        <button class="btn btn-sm btn-info" ng-if="isOwner" ng-click="editing = !editing">
+                        <a ng-href="#!/boards/{{pin.uid}}/pins/{{pin.boardId}}/edit/{{pin.id}}"><button class="btn btn-sm btn-info" ng-if="isOwner">
+
                             <i class="fa fa-pencil"></i>
-                        </button>
+                        </button></a>
                     </h3>
                     <h3 class="row" ng-show="editing">
                         <input class="col-sm-10" ng-model="pin.title" type="text">
