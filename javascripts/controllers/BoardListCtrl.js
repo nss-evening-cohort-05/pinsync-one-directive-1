@@ -1,7 +1,5 @@
 app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $scope, BoardFactory, UserFactory) {
 
-
-
 	//The following is the flag that controls whether the user sees things like "Add Board", etc.
 	//Feel free to re-use any time you need different views depending on who's logged in
 	$scope.isOwner = $routeParams.uid === $rootScope.user.uid ? true : false;
@@ -12,12 +10,6 @@ app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $s
 	.catch(error => console.log("Error in getUser in BoardListCtrl", error));
 
 	$scope.boards = [];
-
-
-	// load boards for whatever uid was called
-	// if uid matches $rootScope.user.uid then user will have full edit permissions
-	// if uid does not match $rootScope.user.uid then user will only be able to view and add pins from displayed boards
-	// $rootScope.user.uid was initially being passed into FBgetSingleUserBoards
 
 	let getBoards = () => {
 		BoardFactory.FBgetSingleUserBoards($routeParams.uid).then(boards => {
@@ -36,7 +28,6 @@ app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $s
 	};
 
 	$scope.deleteBoard = (id) => {
-		console.log("deleteBoard running.  id passed is", id);
 		BoardFactory.FBdeleteBoard(id).then(() => {
 				getBoards();
 		}).catch((error) => {
@@ -62,9 +53,9 @@ app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $s
 
 	$scope.changeBoard = (boardID, boardTitle) => {
 		let tempBoard = {
-						boardId: boardID,
-						uid: $rootScope.user.uid,
-						title: boardTitle
+			boardId: boardID,
+			uid: $rootScope.user.uid,
+			title: boardTitle
 		};
 		BoardFactory.FBeditBoard(tempBoard).then(() => {
 			getBoards();

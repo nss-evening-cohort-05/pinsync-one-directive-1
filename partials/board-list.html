@@ -24,8 +24,8 @@
                         <a ng-href="#!/boards/{{board.uid}}/pins/{{board.boardId}}">
                             {{board.title}}
                         </a>
-                        <div class="pull-right" ng-if="isOwner">
-                            <button class="btn btn-sm btn-info" ng-click="editing = !editing;">
+                        <div class="pull-right" ng-show="isOwner">
+                            <button class="btn btn-sm btn-info" ng-click="editing = true;">
                                 <i class="fa fa-pencil"></i>
                             </button>
                         </div>
