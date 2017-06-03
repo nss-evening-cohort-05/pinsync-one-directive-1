@@ -10,13 +10,10 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
       $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
       .then((fbPins) => {
         let pinCollection = fbPins.data;
-        console.log ("PinData" , pinCollection);
         if (pinCollection !== null) {
-
             Object.keys(pinCollection).forEach((key) => {
             pinCollection[key].id=key;
             pinArray.push(pinCollection[key]);
-            console.log ("PinFactory array" , pinArray[0]);
           });
         }
         resolve(pinArray);
@@ -41,9 +38,45 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
         });
     });
   };
-  //
+  
+  //**************************************
+  // edit pin
+  //**************************************
+  let editPin = (pin) => {
+    return $q((resolve, reject) => {
+      $http.put(`${FIREBASE_CONFIG.databaseURL}/pins/${pin.id}.json`, 
+        JSON.stringify({
+          title: pin.title,
+          url: pin.url,
+          imageUrl: pin.imageUrl,
+          uid: pin.uid,
+          boardId: pin.boardId
+        })
+        ).then((resultz) => {
+          resolve(resultz);
+        }).catch((error) => {
+          reject(error);
+        });
+    });
+  };
+
+  //**************************************
+  // delete pin
+  //**************************************
+  let deletePin = (pinId) => {
+    return $q((resolve, reject) => {
+      $http.delete(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`)
+        .then((resultz) => {
+          resolve(resultz);
+        }).catch((error) => {
+          reject(error);
+        });
+    });
+  };
 
   return {getPinList:getPinList,
-          postNewPin:postNewPin};
+          postNewPin:postNewPin,
+          editPin:editPin,
+          deletePin:deletePin};
 
 });

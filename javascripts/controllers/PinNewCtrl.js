@@ -3,13 +3,11 @@ app.controller("PinNewCtrl", function($rootScope, $routeParams, $http, $location
 //* Add new pin
 //*********************************
 	$scope.addNewPin = () => {
-		console.log("PinNewCtrl" , $routeParams);
 		$scope.newPin.boardId = $routeParams.id;
 		$scope.newPin.uid = $rootScope.user.uid;
-		$scope.newPin.imageUrl = " ";
 		PinFactory.postNewPin($scope.newPin).then(() => {
 			$scope.newPin = {};
-			$location.url("/my-boards");
+			$location.url(`/pins/view/${$routeParams.id}`);
 		}).catch((error) => {
 			console.log("Add error", error);
 		});
