@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default pin-nav">
+<nav class="navbar navbar-default top-header">
     <div class="container center">
         <div class="row">
             <div class="logo-box col-md-4"></div>
@@ -22,14 +22,14 @@
             <!-- /input-group -->
         </div>
         <!-- /.col-lg-6 -->
-        <div class="filters col-md-6 col-xs-12">
-            <ul ng-if="user.uid">
-                <li><a ng-href="#!/boards/{{user.uid}}">My Boards</a></li>
-                <li><a ng-href="#!/user-list">Other Boards</a></li>
-                <li><a ng-href="#!/logout">Logout</a></li>
+        <div class="col-md-6 col-xs-12">
+            <ul class="nav-list" ng-if="user.uid">
+                <li class="nav-list__item"><a ng-href="#!/boards/{{user.uid}}">My Boards</a></li>
+                <li class="nav-list__item"><a ng-href="#!/user-list">Other Boards</a></li>
+                <li class="nav-list__item"><a ng-href="#!/logout">Logout</a></li>
             </ul>
-            <ul class="" ng-if="!user.uid">
-                <li><a href="#!/auth">Login Page</a></li>
+            <ul class="nav-list" ng-if="!user.uid">
+                <li class="nav-list__item"><a href="#!/auth">Login Page</a></li>
             </ul>
         </div>
     </div>
