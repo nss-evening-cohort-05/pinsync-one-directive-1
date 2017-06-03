@@ -2,7 +2,7 @@ app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, BoardFa
 
 	$scope.ownerUsername = "";
 	$scope.pins = [];
-  $scope.board = {};
+ 	$scope.board = {};
 
 	BoardFactory.FBgetSingleBoard($routeParams.boardId, $routeParams.uid)
 	.then(board => {

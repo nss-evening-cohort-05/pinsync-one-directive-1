@@ -35,13 +35,14 @@ app.config(function($routeProvider) {
         .when("/boards/:uid", {
             templateUrl: "partials/board-list.html",
             controller: "BoardListCtrl",
+            resolve: { isAuth }
         })
         .when("/boards/:uid/pins/:boardId", {
             templateUrl: "partials/pin-view.html",
             controller: "PinViewCtrl",
             resolve: { isAuth }
         })
-        .when('/pin/new/:boardId', {
+        .when('/pin/new/:uid/pins/:boardId', {
             templateUrl: 'partials/pin-new.html',
             controller: 'PinNewCtrl',
             resolve : {isAuth}

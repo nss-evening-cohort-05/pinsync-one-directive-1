@@ -39,16 +39,46 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
   };
   
 
-  let FBdeletePin = pinId => {
+  //**************************************
+  // edit pin
+  //**************************************
+  let editPin = (pin) => {
+    return $q((resolve, reject) => {
+      $http.put(`${FIREBASE_CONFIG.databaseURL}/pins/${pin.id}.json`, 
+        JSON.stringify({
+          title: pin.title,
+          url: pin.url,
+          imageUrl: pin.imageUrl,
+          uid: pin.uid,
+          boardId: pin.boardId
+        })
+        ).then((resultz) => {
+          resolve(resultz);
+        }).catch((error) => {
+          reject(error);
+        });
+    });
+  };
+
+  //**************************************
+  // delete pin
+  //**************************************
+  let deletePin = (pinId) => {
     return $q((resolve, reject) => {
       $http.delete(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`)
-      .then(result => resolve(result))
-      .catch(error => reject(error));
+        .then((resultz) => {
+          resolve(resultz);
+        }).catch((error) => {
+          reject(error);
+        });
+
     });
   };
 
   return {getPinList:getPinList,
           postNewPin:postNewPin,
-          FBdeletePin:FBdeletePin};
+          editPin:editPin,
+          deletePin:deletePin};
+
 
 });
