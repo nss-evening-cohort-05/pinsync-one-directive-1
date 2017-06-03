@@ -12,7 +12,6 @@ app.factory("BoardFactory", function($http, $q, $routeParams, FIREBASE_CONFIG) {
             Object.keys(boardCollection).forEach((key) => {
             boardCollection[key].boardId=key;
             boardArray.push(boardCollection[key]);
-            console.log ("BoardFactory array" , boardArray);
           });
         }
         resolve(boardArray);
@@ -44,20 +43,25 @@ app.factory("BoardFactory", function($http, $q, $routeParams, FIREBASE_CONFIG) {
     });
   };
 
-  let FBgetSingleBoard = (boardId) => {
+  let FBgetSingleBoard = (bid, uid) => {
     let boardArray = [];
+    let targetBoard = {};
     return $q((resolve, reject) => {
-      $http.get(`${FIREBASE_CONFIG.databaseURL}/boards.json?orderBy="boardId"&equalTo="${boardId}"`)
-      .then((fbBoards) => {
-        let boardCollection = fbBoards.data;
-        if (boardCollection !== null) {
-            Object.keys(boardCollection).forEach((key) => {
-            boardCollection[key].boardId = key;
-            boardArray.push(boardCollection[key]);
-            console.log ("BoardFactory array" , boardArray);
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/boards.json?orderBy="uid"&equalTo="${uid}"`)
+      .then(usersBoards => {
+        usersBoards = usersBoards.data;
+        if (usersBoards !== null) {
+            Object.keys(usersBoards).forEach(key => {
+            usersBoards[key].boardId = key;
+            boardArray.push(usersBoards[key]);
           });
         }
-        resolve(boardArray);
+        boardArray.forEach(each => {
+          if (each.boardId == bid) {
+            targetBoard = each;
+          }
+        });
+        resolve(targetBoard);
       })
       .catch((error) => {
         reject(error);
@@ -97,7 +101,7 @@ app.factory("BoardFactory", function($http, $q, $routeParams, FIREBASE_CONFIG) {
     });
   };
 
-  return {FBgetSingleUserBoards:FBgetSingleUserBoards, FBgetAllPublicBoards:FBgetAllPublicBoards, FBpostNewBoard:FBpostNewBoard, FBdeleteBoard: FBdeleteBoard, FBeditBoard:FBeditBoard};
+  return {FBgetSingleUserBoards:FBgetSingleUserBoards, FBgetSingleBoard: FBgetSingleBoard, FBgetAllPublicBoards:FBgetAllPublicBoards, FBpostNewBoard:FBpostNewBoard, FBdeleteBoard: FBdeleteBoard, FBeditBoard:FBeditBoard};
 
 
 });
