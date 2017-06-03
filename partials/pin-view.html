@@ -19,22 +19,43 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title for-pins" ng-show="!editing">
-	                    {{pin.title}}
-                        <button class="btn btn-sm btn-info" ng-if="!isOwner">
-                            <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
-                        </button>
+                        {{pin.title}} 
 
-                        <button class="btn btn-sm btn-info" ng-if="isOwner" ng-click="editing = !editing">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </h3>
+                        <button class="btn btn-sm btn-info" ng-if="!isOwner" uib-popover-template="savePinPopover.templateUrl" popover-title="Pin to which Board?" type="button"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></button>
+
+                        <script type="text/ng-template" id="savePinPopover.html">
+
+                            <div class="form-group">
+
+                                <div class="btn-group" uib-dropdown is-open="status.isopen">
+                                  <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+                                    Button dropdown <span class="caret"></span>
+                                  </button>
+
+                                  <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                    <li ng-repeat="board in ownerBoards" role="menuitem"><a ng-click="savePinToMyBoard(pin, board.boardId)">{{board.title}}</a></li>
+                                  </ul>
+
+                                </div>
+
+                                <form ng-submit="">
+                                    <!-- <input type="text" ng-model="savePinPopover.boardTitle" class="form-control" ng-keyup="$event.keyCode == 13"> -->
+                                </form>
+                            </div>
+
+                        </script> 
+
+                <button class="btn btn-sm btn-info" ng-if="isOwner" ng-click="editing = !editing">
+                    <i class="fa fa-pencil"></i>
+                </button>
+                </h3>
                     <h3 class="row" ng-show="editing">
                         <input class="col-sm-10" ng-model="pin.title" type="text">
                         <button class="btn btn-sm btn-success col-sm-1" ng-click="editing = false; addNewPin()">
                             <i class=" fa fa-save"></i>
                         </button>
                         <button class="btn btn-sm btn-danger col-sm-1" ng-click="deletePin(pin.id)">
-	                        <i class="fa fa-trash"></i>
+                            <i class="fa fa-trash"></i>
                         </button>
                     </h3>
                 </div>
