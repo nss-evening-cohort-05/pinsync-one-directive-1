@@ -6,7 +6,6 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
   let getPinList = (boardId) => {
     let pinArray = [];
     return $q((resolve, reject) => {
-
       $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
       .then((fbPins) => {
         let pinCollection = fbPins.data;
@@ -71,6 +70,7 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
         }).catch((error) => {
           reject(error);
         });
+
     });
   };
 

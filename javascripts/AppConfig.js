@@ -1,9 +1,3 @@
-app.config(function($routeProvider) {
-    $routeProvider
-
-        .otherwise("/my-boards");
-});
-
 let isAuth = (AuthFactory) => new Promise((resolve, reject) => {
     if (AuthFactory.isAuthenticated()) {
         resolve();
@@ -33,11 +27,6 @@ app.config(function($routeProvider) {
             templateUrl: 'partials/auth.html',
             controller: 'AppAuthCtrl'
         })
-        .when("/my-boards", {
-            templateUrl: "partials/board-list.html",
-            controller: "BoardListCtrl",
-            resolve: { isAuth }
-        })
         // .when("/other-boards", {
         //     templateUrl: "partials/board-list.html",
         //     controller: "UserListCtrl",	// could be refactored into BoardListCtrl, geMyBoards() reused to get other boards too
@@ -45,15 +34,14 @@ app.config(function($routeProvider) {
         // })
         .when("/boards/:uid", {
             templateUrl: "partials/board-list.html",
-            controller: "BoardListCtrl", // could be refactored into BoardListCtrl, geMyBoards() reused to get other boards too
-            resolve: { isAuth }
+            controller: "BoardListCtrl",
         })
-        .when("/pins/view/:id", {
+        .when("/boards/:uid/pins/:boardId", {
             templateUrl: "partials/pin-view.html",
             controller: "PinViewCtrl",
             resolve: { isAuth }
         })
-        .when('/pin/new/:id', {
+        .when('/pin/new/:boardId', {
             templateUrl: 'partials/pin-new.html',
             controller: 'PinNewCtrl',
             resolve : {isAuth}

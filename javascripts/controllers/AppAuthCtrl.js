@@ -16,11 +16,10 @@ app.controller("AppAuthCtrl", function($location, $rootScope, $scope, AuthFactor
 		AuthFactory.authenticate($scope.auth).then((userCreds) => {
 			return UserFactory.getUser(userCreds.uid);
 		}, (error) => {
-			$scope.alerts.push({msg: error.message});
+			$scope.alerts.push({msg: "Oops! Looks like that username or password isn't recognized."});
 			console.log(error);
 		}).then((user) => {
 			$rootScope.user = user;
-			console.log("root scope user uid", $rootScope.user.uid);
 			$location.url(`/boards/${$rootScope.user.uid}`);
 		}).catch((error) => {
 			console.log(error);

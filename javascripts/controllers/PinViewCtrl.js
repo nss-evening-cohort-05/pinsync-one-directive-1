@@ -1,13 +1,40 @@
-app.controller("PinViewCtrl", function($scope, $routeParams , PinFactory ) {
-   $scope.pins = [];
-   $scope.boardId = "";
+app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, BoardFactory, PinFactory, UserFactory) {
 
-   PinFactory.getPinList($routeParams.id).then((results) => {
+	$scope.ownerUsername = "";
+	$scope.pins = [];
+  $scope.board = {};
+  $scope.boardId = "";
+
+	BoardFactory.FBgetSingleBoard($routeParams.boardId, $routeParams.uid)
+	.then(board => {
+		$scope.board = board;
+		return UserFactory.getUser($scope.board.uid);
+	}, error => console.log("error in FBgetSingleBoard in PinViewCtrl"))
+	.then(user => $scope.ownerUsername = user.username)
+	.catch(error => console.log("Error in getUser in PinViewCtrl", error));
+
+	$scope.isOwner = $routeParams.uid === $rootScope.user.uid ? true : false;
+	
+  	let getPins = () => {
+
+		PinFactory.getPinList($routeParams.id).then((results) => {
    		$scope.boardId = $routeParams.id;
 		$scope.pins = results;
 		console.log("results", results , $routeParams.id);
 	}).catch((error) => {
 		console.log("getPinList", error);
 	});
+
+	};
+
+	getPins();
+
+	$scope.deletePin = (id) => {
+		PinFactory.FBdeletePin(id).then(() => {
+				getPins();
+		}).catch((error) => {
+			console.log("deleteItem error", error);
+		});
+	};
 
 });

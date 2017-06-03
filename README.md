@@ -1,10 +1,30 @@
-# Using your mad Angular skillz - Pinterest Clone
+# NSS Pinterest Clone Project
 
-You will be broken into teams and your goals is to reverse engineer the basic functionality of Pinterest and build your own version of it.
+![Splashpage]()
+
+<hr>
+
+## Summary
+
+In teams our task was to reverse engineer the basic functionality of Pinterest and build your own version of it using AngularJS and Bootstrap.
+
+<hr>
+
+## To Access Necessary Libaries:
+ - Pull down project
+ - cd into lib
+ - Run command "bower install"
+ - Run command "npm install"
+ - Run bower install angular-animate --save
+ - Run bower install angular-sanitize --save
+ - Run grunt
+ - Seed database/seed.json to firebase with read & write permissions
+
+<hr>
 
 ## Priorities
 
-1. Firebase structure. Flat, flat, flat.
+1. Flat firebase structure.
 2. Authentication.
 3. Create board.
 4. Create pin to go on a board.
