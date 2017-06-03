@@ -1,4 +1,6 @@
-app.controller("BoardListCtrl", function($rootScope, $routeParams, $scope, BoardFactory, UserFactory) {
+app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $scope, BoardFactory, UserFactory) {
+
+
 
 	//The following is the flag that controls whether the user sees things like "Add Board", etc.
 	//Feel free to re-use any time you need different views depending on who's logged in
@@ -9,6 +11,7 @@ app.controller("BoardListCtrl", function($rootScope, $routeParams, $scope, Board
 	.catch(error => console.log("Error in getUser in BoardListCtrl", error));
 
 	$scope.boards = [];
+
 
 	// load boards for whatever uid was called
 	// if uid matches $rootScope.user.uid then user will have full edit permissions
@@ -39,5 +42,34 @@ app.controller("BoardListCtrl", function($rootScope, $routeParams, $scope, Board
 			console.log("deleteItem error", error);
 		});
 	};
+
+	//For the Popover
+	$scope.createNewBoardPopover = {
+    templateUrl: 'newBoardPopover.html',
+    userTitle: ''
+  };
+
+  $scope.addBoard = () => {
+  	let newBoard = {
+  		title: $scope.createNewBoardPopover.userTitle,
+  		uid: $rootScope.user.uid
+  	};
+  	BoardFactory.FBpostNewBoard(newBoard)
+  	.then(response => $location.url(`boards/${$rootScope.user.uid}/pins/${response.data.name}`))
+  	.catch(error => console.log("error in FBpostNewBoard in addBoard in BoardListCtrl", error));
+  };
+
+	$scope.changeBoard = (boardID, boardTitle) => {
+		let tempBoard = {
+						boardId: boardID,
+						uid: $rootScope.user.uid,
+						title: boardTitle
+		};
+		BoardFactory.FBeditBoard(tempBoard).then(() => {
+			getBoards();
+		}).catch((error) => {
+			console.log("changeBoard error", error);
+		});
+		};
 
 });
