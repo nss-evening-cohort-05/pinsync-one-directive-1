@@ -3,6 +3,7 @@ app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, BoardFa
 	$scope.ownerUsername = "";
 	$scope.pins = [];
   $scope.board = {};
+  $scope.boardId = "";
 
 	BoardFactory.FBgetSingleBoard($routeParams.boardId, $routeParams.uid)
 	.then(board => {
@@ -16,16 +17,17 @@ app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, BoardFa
 	
   	let getPins = () => {
 
-		PinFactory.getPinList($routeParams.boardId).then((results) => {
-			$scope.pins = results;
-		}).catch((error) => {
-			console.log("getPinList", error);
-		});
+		PinFactory.getPinList($routeParams.id).then((results) => {
+   		$scope.boardId = $routeParams.id;
+		$scope.pins = results;
+		console.log("results", results , $routeParams.id);
+	}).catch((error) => {
+		console.log("getPinList", error);
+	});
 
 	};
 
 	getPins();
-
 
 	$scope.deletePin = (id) => {
 		PinFactory.FBdeletePin(id).then(() => {

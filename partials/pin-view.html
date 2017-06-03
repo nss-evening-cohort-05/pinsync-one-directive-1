@@ -1,3 +1,6 @@
+<h3>Pins</h3>
+<button class="btn btn-warning"><a ng-href="#!/pin/new/{{boardId}}">New pin</a></button>
+
 <div class="col-sm-4">
     <h3 ng-if="isOwner">{{board.title}}</h3>
     <h3 ng-if="!isOwner">{{ownerUsername}}'s {{board.title}} Board</h3>
@@ -37,6 +40,8 @@
                 <div class="panel-body">
                     <a href="{{pin.url}}" target="_blank"><img class="img-responsive" src="{{pin.imageUrl}}" alt="{{pin.title}}"></a>
                 </div>
+                <button class="btn btn-sm btn-info"><i class=" fa fa-pencil"></i><a ng-href="#!/pin/new/:id{{xxx.id}}">Edit</a></button>
+                <button class="btn btn-sm btn-danger" ng-click="deleteBoard(board.boardId)"><i class="fa fa-trash"></i></button>
             </div>
         </div>
     </div>
