@@ -1,6 +1,6 @@
 # NSS Pinterest Clone Project
 
-![Title Banner](https://raw.githubusercontent.com/nss-evening-cohort-05/pinsync-one-directive-1/readme/images/Pin%20Stuff%20Header%20(1).png)
+![Title Banner](https://raw.githubusercontent.com/nss-evening-cohort-05/pinsync-one-directive-1/master/images/header.png)
 
 <hr>
 
@@ -10,7 +10,7 @@ In teams our task was to reverse engineer the basic functionality of Pinterest a
 
 <hr>
 
-![Page Screenshot](https://raw.githubusercontent.com/nss-evening-cohort-05/pinsync-one-directive-1/readme/images/pinss.png) 
+![Page Screenshot](https://raw.githubusercontent.com/nss-evening-cohort-05/pinsync-one-directive-1/master/images/pinss.png) 
 
 <hr>
 
