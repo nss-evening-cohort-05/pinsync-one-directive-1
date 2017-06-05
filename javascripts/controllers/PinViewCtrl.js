@@ -16,31 +16,24 @@ app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, BoardFa
     $scope.isOwner = $routeParams.uid === $rootScope.user.uid ? true : false;
 
     let getPins = () => {
-
         PinFactory.getPinList($routeParams.boardId).then((results) => {
             $scope.pins = results;
         }).catch((error) => {
             console.log("getPinList", error);
         });
-
     };
 
     getPins();
 
     $scope.savePinToMyBoard = (pin, myBoardId) => {
-
         console.log("pin1", pin.boardId, myBoardId);
         pin.boardId = myBoardId;
         delete pin.id;
-
         PinFactory.postNewPin(pin).then((response) => {
             console.log("response", response);
-
         }).catch((error) => {
             console.log("save pin error", error);
-            //console.log("pin2",pin);
         });
-
     };
 
     let getBoards = () => {
@@ -70,44 +63,3 @@ app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, BoardFa
 
 });
 
-//// From an old conflict (GW)
-// 	$scope.ownerUsername = "";
-// 	$scope.pins = [];
-//   $scope.board = {};
-
-// 	BoardFactory.FBgetSingleBoard($routeParams.boardId, $routeParams.uid)
-// 	.then(board => {
-// 		$scope.board = board;
-// 		return UserFactory.getUser($scope.board.uid);
-// 	}, error => console.log("error in FBgetSingleBoard in PinViewCtrl"))
-// 	.then((user) => {
-// 		console.log("user in getSB", user);
-// 		$scope.ownerUsername = user.username;
-// 	})
-
-// 	.catch(error => console.log("Error in getUser in PinViewCtrl", error));
-
-// 	$scope.isOwner = $routeParams.uid === $rootScope.user.uid ? true : false;
-
-//   	let getPins = () => {
-
-// 		PinFactory.getPinList($routeParams.boardId).then((results) => {
-// 			$scope.pins = results;
-// 		}).catch((error) => {
-// 			console.log("getPinList", error);
-// 		});
-
-// 	};
-
-// 	getPins();
-
-
-// 	$scope.deletePin = (id) => {
-// 		PinFactory.FBdeletePin(id).then(() => {
-// 				getPins();
-// 		}).catch((error) => {
-// 			console.log("deleteItem error", error);
-// 		});
-// 	};
-
-// });

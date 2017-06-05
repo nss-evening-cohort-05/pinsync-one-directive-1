@@ -12,7 +12,6 @@ app.controller("PinEditCtrl", function($routeParams, $scope, $location, $rootSco
 
 	PinFactory.getSinglePin($routeParams.id).then((results) => {
 		$scope.newPin = results.data;
-		console.log("get single pin results", results);
 		}).catch((error) => {
 		console.log("getSinglePin", error);
 	});
