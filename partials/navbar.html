@@ -20,7 +20,7 @@
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     </button>
                 </span>
-                <input type="text" class="form-control search" ng-model="searchInput" ng-keyup="broadcastNavSearch()" ng-show="user.uid">
+                <input type="text" class="form-control search" placeholder=" Search" ng-model="searchInput" ng-keyup="broadcastNavSearch()" ng-show="user.uid">
             </div>
             <!-- /input-group -->
         </div>
@@ -32,7 +32,7 @@
                 <li class="nav-list__item"><a ng-href="#!/logout">Logout</a></li>
             </ul>
             <ul class="nav-list" ng-if="!user.uid">
-                <li class="nav-list__item"><a href="#!/auth">Login Page</a></li>
+                <li class="nav-list__item"><a href="#!/auth">Login or Sign Up</a></li>
             </ul>
         </div>
     </div>

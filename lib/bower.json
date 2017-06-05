@@ -20,7 +20,8 @@
     "angular": "^1.6.4",
     "angular-route": "^1.6.4",
     "angular-animate": "^1.6.4",
-    "angular-sanitize": "^1.6.4"
+    "angular-sanitize": "^1.6.4",
+    "ngToast": "ngtoast#^2.0.0"
   },
   "resolutions": {
     "angular-sanitize": "^1.6.4"

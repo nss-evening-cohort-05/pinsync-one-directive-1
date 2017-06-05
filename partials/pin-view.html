@@ -2,12 +2,13 @@
     <h3 ng-if="isOwner">{{board.title}}</h3>
     <h3 ng-if="!isOwner">{{ownerUsername}}'s {{board.title}} Board</h3>
 </div>
-<div class="col-sm-2 col-sm-offset-6  btn-right" ng-if="isOwner">
+<div class="col-sm-2 col-sm-offset-6  btn-new btn-right" ng-if="isOwner">
     <h3>
         <button class="btn btn-default">
             <a ng-href="#!/pin/new/{{board.boardId}}">
-                New Pin
+                New
             </a>
+            <span class="glyphicon glyphicon-pushpin glyph-inverse" aria-hidden="true"></span>
         </button>
     </h3>
 </div>

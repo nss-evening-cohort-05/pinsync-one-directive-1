@@ -17,9 +17,9 @@ body {
 
 .logo {
   font-family: 'Yellowtail', cursive;
-  font-size: 55px;
+  font-size: 8vh;
   color: white;
-  padding: 3% 0;
+  padding: 2vh;
   margin-right: 0px; }
 
 .input-field {
@@ -48,6 +48,9 @@ body {
     .nav-list__item a {
       color: #931A1A;
       font-weight: bold; }
+
+.view-box {
+  padding-top: 5%; }
 
 .box-container {
   background-color: gray;
@@ -86,6 +89,18 @@ body {
 .btn-right {
   text-align: right;
   padding: 0; }
+  .btn-right a {
+    color: white; }
+
+.btn-new button {
+  background-color: #931A1A;
+  color: white; }
+  .btn-new button:hover, .btn-new button:active, .btn-new button:visited {
+    background-color: #931A1A;
+    color: white; }
+
+.glyph-inverse, .glyph-inverse a {
+  color: #fff; }
 
 .panel-edit {
   padding: 20px; }
