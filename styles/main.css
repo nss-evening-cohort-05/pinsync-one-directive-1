@@ -17,9 +17,9 @@ body {
 
 .logo {
   font-family: 'Yellowtail', cursive;
-  font-size: 55px;
+  font-size: 8vh;
   color: white;
-  padding: 3% 0;
+  padding: 2vh;
   margin-right: 0px; }
 
 .input-field {
@@ -48,6 +48,9 @@ body {
     .nav-list__item a {
       color: #931A1A;
       font-weight: bold; }
+
+.view-box {
+  padding-top: 5%; }
 
 .box-container {
   background-color: gray;
@@ -80,18 +83,36 @@ body {
 .alert-danger {
   text-align: center; }
 
-.for-pins {
-  padding: 20px; }
-
 .btn-right {
   text-align: right;
   padding: 0; }
+  .btn-right a {
+    color: white; }
+
+.btn-new button, .btn-new-board button {
+  background-color: #931A1A;
+  color: white; }
+  .btn-new button:hover, .btn-new button:active, .btn-new button:visited, .btn-new-board button:hover, .btn-new-board button:active, .btn-new-board button:visited {
+    background-color: #931A1A;
+    color: white; }
+  .btn-new button span, .btn-new-board button span {
+    margin: 3px; }
+
+.glyph-inverse, .glyph-inverse a {
+  color: #fff; }
 
 .panel-edit {
   padding: 20px; }
 
 .edit-btn {
   margin: 0; }
+
+.btn-margin {
+  margin: 0px 5px; }
+
+.new-pin-btn, .new-pin-btn:hover, .new-pin-btn:link, .new-pin-btn:focus {
+  text-decoration: inherit;
+  color: inherit; }
 
 main.ng-enter {
   transition: 0.3s linear all;

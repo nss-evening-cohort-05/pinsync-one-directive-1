@@ -1,12 +1,16 @@
 # NSS Pinterest Clone Project
 
-![Splashpage]()
+![Title Banner](https://raw.githubusercontent.com/nss-evening-cohort-05/pinsync-one-directive-1/master/images/header.png)
 
 <hr>
 
 ## Summary
 
 In teams our task was to reverse engineer the basic functionality of Pinterest and build your own version of it using AngularJS and Bootstrap.
+
+<hr>
+
+![Page Screenshot](https://raw.githubusercontent.com/nss-evening-cohort-05/pinsync-one-directive-1/master/images/pinss.png) 
 
 <hr>
 

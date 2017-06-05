@@ -1,9 +1,10 @@
 app.controller("PinNewCtrl", function($rootScope, $routeParams, $http, $location, $q, $scope, FIREBASE_CONFIG, PinFactory) {
 
-$scope.newPin = {
-	imageUrl: "",
-	url: ""
-};
+	$scope.newPin = {
+		imageUrl: "",
+		url: ""
+	};
+	$scope.pageTitle = "New Pin";
 
 	$scope.addNewPin = () => {
 		$scope.newPin.boardId = $routeParams.boardId;
