@@ -1,9 +1,6 @@
 app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $scope, BoardFactory, UserFactory) {
 
-	//The following is the flag that controls whether the user sees things like "Add Board", etc.
-	//Feel free to re-use any time you need different views depending on who's logged in
 	$scope.isOwner = $routeParams.uid === $rootScope.user.uid ? true : false;
-	console.log($scope.isOwner);
 	$scope.ownerUsername = "";
 	UserFactory.getUser($routeParams.uid)
 	.then(user => $scope.ownerUsername = user.username)
@@ -35,11 +32,6 @@ app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $s
 		});
 	};
 
-	//For the Popover
-	$scope.createNewBoardPopover = {
-    templateUrl: 'newBoardPopover.html',
-    userTitle: ''
-  };
 
   $scope.addBoard = () => {
   	let newBoard = {
@@ -62,6 +54,18 @@ app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $s
 		}).catch((error) => {
 			console.log("changeBoard error", error);
 		});
-		};
+	};
+
+	//For the Popover
+	$scope.createNewBoardPopover = {
+    templateUrl: 'newBoardPopover.html',
+    userTitle: ''
+  };
+
+	//For the Search Bar
+	$scope.searchText = "";
+	$scope.$on('NavSearch', function(event, data) {
+		$scope.searchText = data;
+	});
 
 });

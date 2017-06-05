@@ -1,3 +1,4 @@
+<div ng-controller="NavBarCtrl">
 <nav class="navbar navbar-default top-header">
     <div class="container center">
         <div class="row">
@@ -15,9 +16,11 @@
         <div class="col-md-6 col-xs-12">
             <div class="input-group inputs">
                 <span class="input-group-btn" ng-if="user.uid">
-          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    <button class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
                 </span>
-                <input type="text" class="form-control search" ng-model="searchText" placeholder="Search for..." ng-if="user.uid">
+                <input type="text" class="form-control search" ng-model="searchInput" ng-keyup="broadcastNavSearch()" ng-show="user.uid">
             </div>
             <!-- /input-group -->
         </div>
@@ -33,4 +36,5 @@
             </ul>
         </div>
     </div>
+</div>
 </div>
