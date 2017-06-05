@@ -18,16 +18,13 @@
         <div class="col-sm-4">
             <div class="panel panel-default">
                 <div class="panel-heading ">
-                    <h3 class="panel-title for-pins" ng-show="!editing">
 <!-- <<<<<<< HEAD -->
                         {{pin.title}} 
 
                         <button class="btn btn-sm btn-info" ng-if="!isOwner" uib-popover-template="savePinPopover.templateUrl" popover-title="Pin to which Board?" type="button"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></button>
 
                         <script type="text/ng-template" id="savePinPopover.html">
-
                             <div class="form-group">
-
                                 <div class="btn-group" uib-dropdown is-open="status.isopen">
                                   <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
                                     Button dropdown <span class="caret"></span>
@@ -50,8 +47,8 @@
                     <i class="fa fa-pencil"></i>
                 </button>
                 </h3>
-<!-- =======
-	                    {{pin.title}}
+                    <!-- ======= *** This was the block on master before the popup was added in its place ***
+                        {{pin.title}}
                         <a ng-href="#!/boards/{{pin.uid}}/pins/{{pin.boardId}}/edit/{{pin.id}}"><button class="btn btn-sm btn-info" ng-if="isOwner">
 
                             <i class="fa fa-pencil"></i>
