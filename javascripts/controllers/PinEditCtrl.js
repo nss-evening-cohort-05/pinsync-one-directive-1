@@ -9,7 +9,9 @@ app.controller("PinEditCtrl", function($routeParams, $scope, $location, $rootSco
 	// .then(user => $scope.ownerUsername = user.username)
 	// .catch(error => console.log("Error in getUser in BoardListCtrl", error));
 
+	$scope.title = "Edit Pin";
 
+	
 	PinFactory.getSinglePin($routeParams.id).then((results) => {
 		$scope.newPin = results.data;
 		}).catch((error) => {
