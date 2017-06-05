@@ -3,6 +3,7 @@ app.controller("PinNewCtrl", function($rootScope, $routeParams, $http, $location
 //* Add new pin
 //*********************************
 
+$scope.title = "New Pin";
 $scope.newPin = {
 	imageUrl: "",
 	url: ""
