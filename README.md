@@ -1,6 +1,6 @@
 # NSS Pinterest Clone Project
 
-![Splashpage]()
+![Title Banner](https://raw.githubusercontent.com/nss-evening-cohort-05/pinsync-one-directive-1/master/images/Pin%20Stuff%20Header%20(1).png
 
 <hr>
 
