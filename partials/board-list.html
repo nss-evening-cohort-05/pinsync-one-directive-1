@@ -30,16 +30,15 @@
                             </button>
                         </div>
                     </h2>
-                    <h3 ng-show="editing">
+                    <div ng-show="editing">
                         <input ng-model="board.title" type="text">
+                        <div class="pull-right">
                             <button class="btn btn-sm btn-success" ng-click="editing = false; changeBoard(board.boardId, board.title)">
                                 <i class=" fa fa-save"></i>
                             </button>
                         <button class="btn btn-sm btn-danger" ng-click="deleteBoard(board.boardId)"><i class="fa fa-trash"></i></button>
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    <!-- board image will go here -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
