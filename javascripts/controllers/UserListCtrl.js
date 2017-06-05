@@ -12,4 +12,10 @@ app.controller("UserListCtrl", function($routeParams, $scope, UserFactory) {
 
 	getListOfUsers();
 
+	//For the Search Bar
+  $scope.searchText = "";
+  $scope.$on('NavSearch', function(event, data) {
+      $scope.searchText = data;
+  });
+
 });

@@ -1,5 +1,5 @@
-<h2>Click a user to see their boards.</h2>
-<div ng-repeat="user in allUsers">
+<h2>See what others are pinning!</h2>
+<div ng-repeat="user in allUsers | filter: {username: searchText}">
   <div class="panel panel-default allUsers">
     <div class="panel-body">
       <div class="col-xs-6 user-in-list"><a ng-href="#!/boards/{{user.uid}}">{{user.username}}</a></div>

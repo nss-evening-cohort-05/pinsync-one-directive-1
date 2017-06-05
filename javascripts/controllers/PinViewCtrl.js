@@ -1,4 +1,4 @@
-app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, BoardFactory, PinFactory, UserFactory) {
+app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, ngToast, BoardFactory, PinFactory, UserFactory) {
 
     $scope.ownerUsername = "";
     $scope.pins = [];
@@ -26,13 +26,14 @@ app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, BoardFa
     getPins();
 
     $scope.savePinToMyBoard = (pin, myBoardId) => {
-        console.log("pin1", pin.boardId, myBoardId);
         pin.boardId = myBoardId;
         delete pin.id;
         PinFactory.postNewPin(pin).then((response) => {
-            console.log("response", response);
+            getPins();
+            ngToast.create('Pin Saved!');
         }).catch((error) => {
-            console.log("save pin error", error);
+            ngToast.create('Sorry, there was an error saving your pin!');
+            console.log("savePinToMyBoard error", error);
         });
     };
 
@@ -51,13 +52,19 @@ app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, BoardFa
         templateUrl: 'savePinPopover.html',
         boardTitle: ''
     };
+    $scope.popoverIsOpen = false;
 
+    //For the Search Bar
+    $scope.searchText = "";
+    $scope.$on('NavSearch', function(event, data) {
+        $scope.searchText = data;
+    });
 
     $scope.deletePin = (id) => {
         PinFactory.FBdeletePin(id).then(() => {
             getPins();
         }).catch((error) => {
-            console.log("deleteItem error", error);
+            console.log("deletePin error", error);
         });
     };
 

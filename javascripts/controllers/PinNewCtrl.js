@@ -1,7 +1,4 @@
 app.controller("PinNewCtrl", function($rootScope, $routeParams, $http, $location, $q, $scope, FIREBASE_CONFIG, PinFactory) {
-//*********************************
-//* Add new pin
-//*********************************
 
 $scope.newPin = {
 	imageUrl: "",
@@ -12,8 +9,8 @@ $scope.newPin = {
 		console.log("PinNewCtrl" , $routeParams);
 		$scope.newPin.boardId = $routeParams.boardId;
 		$scope.newPin.uid = $rootScope.user.uid;
+		console.log("newPin before going to factory", $scope.newPin);
 		PinFactory.postNewPin($scope.newPin).then(() => {
-			$scope.newPin = {};
 			$location.url(`boards/${$rootScope.user.uid}/pins/${$routeParams.boardId}`);
 		}).catch((error) => {
 			console.log("Add error", error);

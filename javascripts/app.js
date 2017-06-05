@@ -1,1 +1,1 @@
-var app = angular.module("PinApp", ["ngAnimate", "ngRoute", "ngSanitize", "ui.bootstrap"]);
+var app = angular.module("PinApp", ["ngAnimate", "ngRoute", "ngSanitize", "ngToast", "ui.bootstrap"]);

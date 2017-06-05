@@ -12,7 +12,7 @@
     </h3>
 </div>
 <div class="row">
-    <div ng-repeat="pin in pins | filter: searchText">
+    <div ng-repeat="pin in pins | filter: {title: searchText}">
         <div class="clearfix" ng-if="$index % 3 == 0"></div>
         <div class="col-sm-4">
             <div class="panel panel-default">
@@ -20,7 +20,7 @@
                     <h3 class="panel-title for-pins">
                     {{pin.title}}
                     <!-- POPOVER -->
-                    <button class="btn btn-sm btn-info" ng-if="!isOwner" uib-popover-template="savePinPopover.templateUrl" popover-title="Pin to which board?" type="button">
+                    <button class="btn btn-sm btn-info" ng-if="!isOwner" uib-popover-template="savePinPopover.templateUrl" popover-title="Pin to which board?" popover-is-open="popoverIsOpen" type="button">
                         <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
                     </button>
                     <script type="text/ng-template" id="savePinPopover.html">
