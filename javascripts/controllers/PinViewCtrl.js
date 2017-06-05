@@ -9,7 +9,11 @@ app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, BoardFa
 		$scope.board = board;
 		return UserFactory.getUser($scope.board.uid);
 	}, error => console.log("error in FBgetSingleBoard in PinViewCtrl"))
-	.then(user => $scope.ownerUsername = user.username)
+	.then((user) => {
+		console.log("user in getSB", user);
+		$scope.ownerUsername = user.username;
+	})
+
 	.catch(error => console.log("Error in getUser in PinViewCtrl", error));
 
 	$scope.isOwner = $routeParams.uid === $rootScope.user.uid ? true : false;

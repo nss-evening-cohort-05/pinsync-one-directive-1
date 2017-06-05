@@ -25,7 +25,6 @@ app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $s
 	};
 
 	$scope.deleteBoard = (id) => {
-		console.log("deleteBoard running.  id passed is", id);
 		BoardFactory.FBdeleteBoard(id).then(() => {
 				getBoards();
 		}).catch((error) => {
@@ -46,9 +45,9 @@ app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $s
 
 	$scope.changeBoard = (boardID, boardTitle) => {
 		let tempBoard = {
-						boardId: boardID,
-						uid: $rootScope.user.uid,
-						title: boardTitle
+			boardId: boardID,
+			uid: $rootScope.user.uid,
+			title: boardTitle
 		};
 		BoardFactory.FBeditBoard(tempBoard).then(() => {
 			getBoards();
