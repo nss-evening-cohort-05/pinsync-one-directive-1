@@ -49,6 +49,18 @@ app.controller("AppAuthCtrl", function($location, $rootScope, $scope, AuthFactor
 		});
 	};
 
+	$scope.registerUserGoogle = () => {
+		AuthFactory.registerWithEmail($scope.auth).then((didRegister) => {
+			$scope.auth.uid = didRegister.uid;
+			return UserFactory.addUserGoogle($scope.auth);
+		}, (error) => {
+			console.log(error);
+		}).then((registerComplete) => {
+			logMeIn();
+		}).catch((error) => {
+		});
+	};
+
 	$scope.loginUser = () => {
 		logMeIn();
 	};
