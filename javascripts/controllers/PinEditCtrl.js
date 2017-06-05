@@ -1,5 +1,7 @@
 app.controller("PinEditCtrl", function($routeParams, $scope, $location, $rootScope, PinFactory, UserFactory ) {
 
+	$scope.pageTitle = "Edit Your Pin";
+
 	PinFactory.getSinglePin($routeParams.id).then((results) => {
 		$scope.newPin = results.data;
 		}).catch((error) => {

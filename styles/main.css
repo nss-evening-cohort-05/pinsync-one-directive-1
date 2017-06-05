@@ -83,9 +83,6 @@ body {
 .alert-danger {
   text-align: center; }
 
-.for-pins {
-  padding: 20px; }
-
 .btn-right {
   text-align: right;
   padding: 0; }
@@ -107,6 +104,13 @@ body {
 
 .edit-btn {
   margin: 0; }
+
+.btn-margin {
+  margin: 0px 5px; }
+
+.new-pin-btn, .new-pin-btn:hover, .new-pin-btn:link, .new-pin-btn:focus {
+  text-decoration: inherit;
+  color: inherit; }
 
 main.ng-enter {
   transition: 0.3s linear all;

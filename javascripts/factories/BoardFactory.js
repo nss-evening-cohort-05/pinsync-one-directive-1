@@ -1,7 +1,5 @@
 app.factory("BoardFactory", function($http, $q, $routeParams, FIREBASE_CONFIG) {
 
-  //THESE FUNCTIONS HAVE BEEN WRITTEN BUT NOT TESTED
-
   let FBgetSingleUserBoards = (userID) => {
     let boardArray = [];
     return $q((resolve, reject) => {
