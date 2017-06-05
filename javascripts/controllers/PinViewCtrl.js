@@ -29,22 +29,20 @@ app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, BoardFa
 
     $scope.savePinToMyBoard = (pin, myBoardId) => {
 
-    	console.log("pin1",pin.boardId, myBoardId);
-    	pin.boardId = myBoardId; 
+        console.log("pin1", pin.boardId, myBoardId);
+        pin.boardId = myBoardId;
+        delete pin.id;
 
-    	//delete pin.id;
+        PinFactory.postNewPin(pin).then((response) => {
+            console.log("response", response);
 
-    	PinFactory.postNewPin(pin).then(()=>{
-    			//console.log("response",response);
-
-    	}).catch((error)=>{
-    		console.log("save pin error", error);
-    		console.log("pin2",pin);
-    	});
+        }).catch((error) => {
+            console.log("save pin error", error);
+            //console.log("pin2",pin);
+        });
 
     };
 
-    
     let getBoards = () => {
         BoardFactory.FBgetSingleUserBoards($rootScope.user.uid).then(boards => {
             $scope.ownerBoards = boards;
@@ -90,7 +88,7 @@ app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, BoardFa
 // 	.catch(error => console.log("Error in getUser in PinViewCtrl", error));
 
 // 	$scope.isOwner = $routeParams.uid === $rootScope.user.uid ? true : false;
-	
+
 //   	let getPins = () => {
 
 // 		PinFactory.getPinList($routeParams.boardId).then((results) => {

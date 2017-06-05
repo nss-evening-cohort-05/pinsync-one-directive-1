@@ -46,7 +46,7 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
   //**************************************
   let postNewPin = (newPin) => {
     return $q((resolve, reject) =>{
-      $http.post(`${FIREBASE_CONFIG.databaseURL}/pins.json`, JSON.stringify(newPin))
+      $http.post(`${FIREBASE_CONFIG.databaseURL}/pins.json`, angular.toJson(newPin))
         .then((resultz) => {
           resolve(resultz);
         }).catch((error) => {
@@ -54,6 +54,9 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
         });
     });
   };
+
+
+  // JSON.stringify(newPin)
   
 
   let FBdeletePin = pinId => {

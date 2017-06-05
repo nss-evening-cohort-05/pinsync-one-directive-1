@@ -2,7 +2,7 @@
     <h3 ng-if="isOwner">{{board.title}}</h3>
     <h3 ng-if="!isOwner">{{ownerUsername}}'s {{board.title}} Board</h3>
 </div>
-<div class="col-sm-2 col-sm-offset-6" ng-if="isOwner">
+<div class="col-sm-2 col-sm-offset-6  btn-right" ng-if="isOwner">
     <h3>
         <button class="btn btn-success">
             <a ng-href="#!/pin/new/{{board.boardId}}">
@@ -17,7 +17,7 @@
         <div class="clearfix" ng-if="$index % 3 == 0"></div>
         <div class="col-sm-4">
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading ">
                     <h3 class="panel-title for-pins" ng-show="!editing">
 <!-- <<<<<<< HEAD -->
                         {{pin.title}} 
