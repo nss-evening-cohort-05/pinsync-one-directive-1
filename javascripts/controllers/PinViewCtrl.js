@@ -14,18 +14,13 @@ app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, BoardFa
 
 	$scope.isOwner = $routeParams.uid === $rootScope.user.uid ? true : false;
 	
-  	let getPins = () => {
-
-		PinFactory.getPinList($routeParams.boardId).then((results) => {
-			$scope.pins = results;
-		}).catch((error) => {
-			console.log("getPinList", error);
-		});
-
+  let getPins = () => {
+		PinFactory.getPinList($routeParams.boardId)
+		.then(results => $scope.pins = results)
+		.catch(error => console.log("error in getPinList in PinViewCtrl", error));
 	};
 
 	getPins();
-
 
 	$scope.deletePin = (id) => {
 		PinFactory.FBdeletePin(id).then(() => {
@@ -34,5 +29,11 @@ app.controller("PinViewCtrl", function($rootScope, $scope, $routeParams, BoardFa
 			console.log("deleteItem error", error);
 		});
 	};
+
+	//For the Search Bar
+	$scope.searchText = "";
+	$scope.$on('NavSearch', function(event, data) {
+		$scope.searchText = data;
+	});
 
 });
