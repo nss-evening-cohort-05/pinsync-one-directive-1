@@ -2,9 +2,9 @@
     <h3 ng-if="isOwner">My Boards</h3>
     <h3 ng-if="!isOwner">{{ownerUsername}}'s Boards</h3>
 </div>
-<div class="col-sm-2 col-sm-offset-6 btn-right" ng-if="isOwner">
+<div class="col-sm-2 col-sm-offset-6 btn-right btn-new-board" ng-if="isOwner">
     <h3>
-        <button uib-popover-template="createNewBoardPopover.templateUrl" popover-title="What should we call it?" type="button" class="btn btn-default">New Board</button>
+        <button uib-popover-template="createNewBoardPopover.templateUrl" popover-title="What should we call it?" type="button" class="btn btn-default">New Board <span class="glyphicon glyphicon-th-large glyph-inverse" aria-hidden="true"></span></button>
         <script type="text/ng-template" id="newBoardPopover.html">
             <div class="form-group">
                 <form>

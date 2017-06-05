@@ -6,8 +6,6 @@ app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $s
 	.then(user => $scope.ownerUsername = user.username)
 	.catch(error => console.log("Error in getUser in BoardListCtrl", error));
 
-    $scope.isOwner = $routeParams.uid === $rootScope.user.uid ? true : false;
-
     $scope.boards = [];
 
     let getBoards = () => {

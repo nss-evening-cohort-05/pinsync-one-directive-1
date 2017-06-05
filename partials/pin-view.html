@@ -2,13 +2,14 @@
     <h3 ng-if="isOwner">{{board.title}}</h3>
     <h3 ng-if="!isOwner">{{ownerUsername}}'s {{board.title}} Board</h3>
 </div>
-<div class="col-sm-2 col-sm-offset-6  btn-right" ng-if="isOwner">
+<div class="col-sm-2 col-sm-offset-6  btn-new btn-right" ng-if="isOwner">
     <h3>
-    <button class="btn btn-default">
-    <a ng-href="#!/pin/new/{{board.boardId}}" class="new-pin-btn">
-        New Pin
-    </a>
-    </button>
+        <a ng-href="#!/pin/new/{{board.boardId}}">
+        <button class="btn btn-default">
+            New
+            <span class="glyphicon glyphicon-pushpin glyph-inverse" aria-hidden="true"></span>
+        </button>
+        </a>     
     </h3>
 </div>
 <div class="row">
@@ -49,11 +50,11 @@
                             </script>
                         </div>
                     </h2>
-                    </div>
-                    <div class="panel-body">
-                        <a href="{{pin.url}}" target="_blank"><img class="img-responsive" src="{{pin.imageUrl}}" alt="{{pin.title}}"></a>
-                    </div>
+                </div>
+                <div class="panel-body">
+                    <a href="{{pin.url}}" target="_blank"><img class="img-responsive" src="{{pin.imageUrl}}" alt="{{pin.title}}"></a>
                 </div>
             </div>
         </div>
     </div>
+</div>

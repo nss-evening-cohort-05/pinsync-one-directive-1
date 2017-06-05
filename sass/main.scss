@@ -22,9 +22,9 @@ body {
 
 .logo {
     font-family: 'Yellowtail', cursive;
-    font-size: 55px;
+    font-size: 8vh;
     color: white;
-    padding: 3% 0;
+    padding: 2vh;
     margin-right: 0px;
 }
 
@@ -60,6 +60,10 @@ body {
             font-weight: bold;
         }
     }
+}
+
+.view-box{
+    padding-top: 5%;
 }
 
 .box-container {
@@ -104,6 +108,25 @@ body {
 .btn-right {
     text-align: right;
     padding: 0;
+    a{
+        color: white;
+    }
+}
+
+.btn-new button, .btn-new-board button{
+    background-color: $red;
+    color: white;
+    &:hover, &:active, &:visited {
+        background-color: $red;
+        color: white;
+    }
+    span{
+        margin: 3px;
+    }
+}
+
+.glyph-inverse, .glyph-inverse a {
+  color: #fff;
 }
 
 .panel-edit{
