@@ -1,4 +1,3 @@
-<div uib-alert ng-repeat="alert in alerts" class="col-xs-12 alert-danger">{{alert.msg}}</div>
 <div class="container auth-box col-xs-4 col-xs-offset-4">
     <input type="email" id="inputEmail" class="form-control form-spacing" placeholder="Email Address" ng-model="auth.email" required autofocus>
     <input type="password" class="form-control form-spacing" placeholder="Password" ng-model="auth.password" required>
@@ -6,3 +5,4 @@
     <a class="btn btn-lg btn-danger col-xs-6" ng-click="loginUser()">Login</a>
     <a class="btn btn-lg btn-danger col-xs-6" ng-click="registerUser()">Register</a>
 </div>
+<div uib-alert ng-repeat="alert in alerts" class="col-xs-4 col-xs-offset-4 alert-danger">{{alert.msg}}</div>
