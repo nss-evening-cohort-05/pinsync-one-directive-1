@@ -113,12 +113,15 @@ body {
     }
 }
 
-.btn-new button {
+.btn-new button, .btn-new-board button{
     background-color: $red;
     color: white;
     &:hover, &:active, &:visited {
         background-color: $red;
         color: white;
+    }
+    span{
+        margin: 3px;
     }
 }
 

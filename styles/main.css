@@ -89,12 +89,14 @@ body {
   .btn-right a {
     color: white; }
 
-.btn-new button {
+.btn-new button, .btn-new-board button {
   background-color: #931A1A;
   color: white; }
-  .btn-new button:hover, .btn-new button:active, .btn-new button:visited {
+  .btn-new button:hover, .btn-new button:active, .btn-new button:visited, .btn-new-board button:hover, .btn-new-board button:active, .btn-new-board button:visited {
     background-color: #931A1A;
     color: white; }
+  .btn-new button span, .btn-new-board button span {
+    margin: 3px; }
 
 .glyph-inverse, .glyph-inverse a {
   color: #fff; }
