@@ -21,5 +21,8 @@
     "angular-route": "^1.6.4",
     "angular-animate": "^1.6.4",
     "angular-sanitize": "^1.6.4"
+  },
+  "resolutions": {
+    "angular-sanitize": "^1.6.4"
   }
 }

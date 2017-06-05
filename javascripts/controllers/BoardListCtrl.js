@@ -27,7 +27,6 @@ app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $s
     };
 
     $scope.deleteBoard = (id) => {
-        console.log("deleteBoard running.  id passed is", id);
         BoardFactory.FBdeleteBoard(id).then(() => {
             getBoards();
         }).catch((error) => {

@@ -10,10 +10,12 @@
         <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
         <link rel="stylesheet" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="lib/bower_components/ngToast/dist/ngToast.min.css">
         <link rel="stylesheet" href="styles/main.css">
     </head>
 
     <body ng-app="PinApp">
+        <toast></toast>
         <div ng-include="'partials/navbar.html'"></div>
         <main ng-view class="container"></main>
         <!-- THIRD PARTY / DEPENDENCIES -->
@@ -25,6 +27,8 @@
         <script type="text/javascript" src="./javascripts/vendor/ui-bootstrap-tpls-2.5.0.min.js"></script>
         <script type="text/javascript" src="./lib/bower_components/angular-animate/angular-animate.min.js"></script>
         <script type="text/javascript" src="./lib/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <script type="text/javascript" src="./lib/bower_components/ngToast/dist/ngToast.min.js"></script>
+
         <!-- APP CONFIG -->
         <script type="text/javascript" src="javascripts/app.js"></script>
         <script type="text/javascript" src="javascripts/AppConstants.js"></script>
