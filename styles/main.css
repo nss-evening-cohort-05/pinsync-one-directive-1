@@ -93,6 +93,9 @@ body {
 .edit-btn {
   margin: 0; }
 
+.for-pins button {
+  margin: -4px 2px; }
+
 main.ng-enter {
   transition: 0.3s linear all;
   opacity: 0; }
