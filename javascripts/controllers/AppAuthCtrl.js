@@ -16,8 +16,7 @@ app.controller("AppAuthCtrl", function($location, $rootScope, $scope, AuthFactor
 		AuthFactory.authenticate($scope.auth).then((userCreds) => {
 			return UserFactory.getUser(userCreds.uid);
 		}, (error) => {
-			$scope.alerts.push({msg: "Oops! Looks like that username or password isn't recognized."});
-			console.log(error);
+			$scope.alerts[0] = {msg: "Oops! Looks like that username or password isn't recognized."};
 		}).then((user) => {
 			$rootScope.user = user;
 			$location.url(`/boards/${$rootScope.user.uid}`);

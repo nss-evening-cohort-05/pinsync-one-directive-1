@@ -23,13 +23,30 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
     });
   };
 
+  // let getSinglePin = (id) => {
+  //   return $q((resolve, reject) => {
+  //     $http.get(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`)
+  //     .then((resultz) => {
+
+  //       console.log("Get Single Pin");
+
+  //       //resultz.data.id = id;
+  //       resolve(resultz);
+  //     }).catch((error) => {
+  //       reject(error);
+  //     });
+  //   });
+  // };
+
+  // To save pin, pass the pin from the partial to get 
+
 
   //**************************************
   // post new pin
   //**************************************
   let postNewPin = (newPin) => {
     return $q((resolve, reject) =>{
-      $http.post(`${FIREBASE_CONFIG.databaseURL}/pins.json`, JSON.stringify(newPin))
+      $http.post(`${FIREBASE_CONFIG.databaseURL}/pins.json`, angular.toJson(newPin))
         .then((resultz) => {
           resolve(resultz);
         }).catch((error) => {
@@ -37,6 +54,9 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
         });
     });
   };
+
+
+  // JSON.stringify(newPin)
   
 
   let FBdeletePin = pinId => {

@@ -2,12 +2,12 @@
     <h3 ng-if="isOwner">My Boards</h3>
     <h3 ng-if="!isOwner">{{ownerUsername}}'s Boards</h3>
 </div>
-<div class="col-sm-2 col-sm-offset-6" ng-if="isOwner">
+<div class="col-sm-2 col-sm-offset-6 btn-right" ng-if="isOwner">
     <h3>
         <button uib-popover-template="createNewBoardPopover.templateUrl" popover-title="What should we call it?" type="button" class="btn btn-default">New Board</button>
         <script type="text/ng-template" id="newBoardPopover.html">
             <div class="form-group">
-                <form ng-submit="addBoard()">
+                <form>
                     <input type="text" ng-model="createNewBoardPopover.userTitle" class="form-control" ng-keyup="$event.keyCode == 13 && addBoard()">
                 </form>
             </div>
@@ -19,13 +19,13 @@
         <div class="clearfix" ng-if="$index % 3 == 0"></div>
         <div class="col-sm-4">
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading panel-edit">
                     <h2 class="panel-title" ng-show="!editing">
                         <a ng-href="#!/boards/{{board.uid}}/pins/{{board.boardId}}">
                             {{board.title}}
                         </a>
                         <div class="pull-right" ng-show="isOwner">
-                            <button class="btn btn-sm btn-info" ng-click="editing = true;">
+                            <button class="btn btn-sm btn-info edit-btn" ng-click="editing = true;">
                                 <i class="fa fa-pencil"></i>
                             </button>
                         </div>

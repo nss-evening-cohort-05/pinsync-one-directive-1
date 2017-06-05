@@ -6,42 +6,34 @@ app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $s
 	.then(user => $scope.ownerUsername = user.username)
 	.catch(error => console.log("Error in getUser in BoardListCtrl", error));
 
-	$scope.boards = [];
+    $scope.isOwner = $routeParams.uid === $rootScope.user.uid ? true : false;
 
-	let getBoards = () => {
-		BoardFactory.FBgetSingleUserBoards($routeParams.uid).then(boards => {
-			$scope.boards = boards;
-		}).catch((error) => {
-			console.log("getBoard error" , error);
-		});
-	};
+    $scope.boards = [];
 
-	getBoards();
+    let getBoards = () => {
+        BoardFactory.FBgetSingleUserBoards($routeParams.uid).then(boards => {
+            $scope.boards = boards;
+        }).catch((error) => {
+            console.log("getBoard error", error);
+        });
+    };
 
-	let createNewBoard = () => {
-		BoardFactory.FBpostNewBoard()
-		.then(() => getMyBoards())
-		.catch(error => console.log("error in createNewBoard", error));
-	};
+    getBoards();
 
-	$scope.deleteBoard = (id) => {
-		BoardFactory.FBdeleteBoard(id).then(() => {
-				getBoards();
-		}).catch((error) => {
-			console.log("deleteItem error", error);
-		});
-	};
+    let createNewBoard = () => {
+        BoardFactory.FBpostNewBoard()
+        .then(() => getMyBoards())
+        .catch(error => console.log("error in createNewBoard", error));
+    };
 
-
-  $scope.addBoard = () => {
-  	let newBoard = {
-  		title: $scope.createNewBoardPopover.userTitle,
-  		uid: $rootScope.user.uid
-  	};
-  	BoardFactory.FBpostNewBoard(newBoard)
-  	.then(response => $location.url(`boards/${$rootScope.user.uid}/pins/${response.data.name}`))
-  	.catch(error => console.log("error in FBpostNewBoard in addBoard in BoardListCtrl", error));
-  };
+    $scope.deleteBoard = (id) => {
+        console.log("deleteBoard running.  id passed is", id);
+        BoardFactory.FBdeleteBoard(id).then(() => {
+            getBoards();
+        }).catch((error) => {
+            console.log("deleteItem error", error);
+        });
+    };
 
 	$scope.changeBoard = (boardID, boardTitle) => {
 		let tempBoard = {
@@ -56,16 +48,26 @@ app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $s
 		});
 	};
 
-	//For the Popover
-	$scope.createNewBoardPopover = {
-    templateUrl: 'newBoardPopover.html',
-    userTitle: ''
-  };
-
 	//For the Search Bar
 	$scope.searchText = "";
 	$scope.$on('NavSearch', function(event, data) {
 		$scope.searchText = data;
 	});
+
+    //For the Popover
+    $scope.createNewBoardPopover = {
+        templateUrl: 'newBoardPopover.html',
+        userTitle: ''
+    };
+
+    $scope.addBoard = () => {
+        let newBoard = {
+            title: $scope.createNewBoardPopover.userTitle,
+            uid: $rootScope.user.uid
+        };
+        BoardFactory.FBpostNewBoard(newBoard)
+            .then(response => $location.url(`boards/${$rootScope.user.uid}/pins/${response.data.name}`))
+            .catch(error => console.log("error in FBpostNewBoard in addBoard in BoardListCtrl", error));
+    };
 
 });
