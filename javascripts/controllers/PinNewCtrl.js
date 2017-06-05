@@ -6,10 +6,8 @@ $scope.newPin = {
 };
 
 	$scope.addNewPin = () => {
-		console.log("PinNewCtrl" , $routeParams);
 		$scope.newPin.boardId = $routeParams.boardId;
 		$scope.newPin.uid = $rootScope.user.uid;
-		console.log("newPin before going to factory", $scope.newPin);
 		PinFactory.postNewPin($scope.newPin).then(() => {
 			$location.url(`boards/${$rootScope.user.uid}/pins/${$routeParams.boardId}`);
 		}).catch((error) => {

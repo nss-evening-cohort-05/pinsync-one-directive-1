@@ -3,6 +3,7 @@
     <input type="password" class="form-control form-spacing" placeholder="Password" ng-model="auth.password" required>
     <input type="text" class="form-control form-spacing" placeholder="Username" ng-model="auth.username" required>
     <a class="btn btn-lg btn-danger col-xs-6" ng-click="loginUser()">Login</a>
+    <a class="btn btn-lg btn-danger col-xs-6" ng-click="logMeInWithGoogle()">Login With Google</a>
     <a class="btn btn-lg btn-danger col-xs-6" ng-click="registerUser()">Register</a>
 </div>
 <div uib-alert ng-repeat="alert in alerts" class="col-xs-4 col-xs-offset-4 alert-danger">{{alert.msg}}</div>
