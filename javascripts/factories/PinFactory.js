@@ -64,8 +64,45 @@ app.factory("PinFactory", function($http, $q, FIREBASE_CONFIG) {
     });
   };
 
+  //**************************************
+  // edit pin
+  //**************************************
+
+  let getSinglePin = (id) => {
+    return $q((resolve, reject) => {
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins/${id}.json`)
+      .then((results) => {
+        results.data.id = id;
+          resolve(results);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+    });
+  };
+
+
+  let editPin = (pin) => {
+    return $q((resolve, reject) => {
+      $http.put(`${FIREBASE_CONFIG.databaseURL}/pins/${pin.id}.json`, 
+        JSON.stringify({
+          title: pin.title,
+          url: pin.url,
+          imageUrl: pin.imageUrl,
+          uid: pin.uid,
+          boardId: pin.boardId
+        })
+        ).then((resultz) => {
+          resolve(resultz);
+        }).catch((error) => {
+          reject(error);
+        });
+    });
+  };
   return {getPinList:getPinList,
+          getSinglePin:getSinglePin,
           postNewPin:postNewPin,
-          FBdeletePin:FBdeletePin};
+          FBdeletePin:FBdeletePin,
+          editPin:editPin};
 
 });

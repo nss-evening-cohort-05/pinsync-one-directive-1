@@ -1,18 +1,16 @@
 app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $scope, BoardFactory, UserFactory) {
 
 
-
     //The following is the flag that controls whether the user sees things like "Add Board", etc.
     //Feel free to re-use any time you need different views depending on who's logged in
     $scope.isOwner = $routeParams.uid === $rootScope.user.uid ? true : false;
-    console.log($scope.isOwner);
+
     $scope.ownerUsername = "";
     UserFactory.getUser($routeParams.uid)
         .then(user => $scope.ownerUsername = user.username)
         .catch(error => console.log("Error in getUser in BoardListCtrl", error));
 
     $scope.boards = [];
-
 
     // load boards for whatever uid was called
     // if uid matches $rootScope.user.uid then user will have full edit permissions

@@ -32,7 +32,6 @@ app.factory("BoardFactory", function($http, $q, $routeParams, FIREBASE_CONFIG) {
             Object.keys(boardCollection).forEach((key) => {
             boardCollection[key].boardId=key;
             boardArray.push(boardCollection[key]);
-            console.log ("BoardFactory array" , boardArray);
           });
         }
         resolve(boardArray);
@@ -69,7 +68,6 @@ app.factory("BoardFactory", function($http, $q, $routeParams, FIREBASE_CONFIG) {
     });
   };
 
-
   let FBpostNewBoard = newBoard => {
     return $q((resolve, reject) => {
       $http.post(`${FIREBASE_CONFIG.databaseURL}/boards.json`,
@@ -80,7 +78,6 @@ app.factory("BoardFactory", function($http, $q, $routeParams, FIREBASE_CONFIG) {
   };
 
   let FBdeleteBoard = boardId => {
-    console.log("FBdeleteBoard running. BoardId is", boardId);
     return $q((resolve, reject) => {
       $http.delete(`${FIREBASE_CONFIG.databaseURL}/boards/${boardId}.json`)
       .then(result => resolve(result))
@@ -91,7 +88,6 @@ app.factory("BoardFactory", function($http, $q, $routeParams, FIREBASE_CONFIG) {
   let FBeditBoard = board => {
     let boardId = board.boardId;
     delete board.boardId;
-
     return $q((resolve, reject) => {
       $http.put(`${FIREBASE_CONFIG.databaseURL}/boards/${boardId}.json`,
         JSON.stringify(board))
@@ -100,6 +96,13 @@ app.factory("BoardFactory", function($http, $q, $routeParams, FIREBASE_CONFIG) {
     });
   };
 
-  return {FBgetSingleUserBoards:FBgetSingleUserBoards, FBgetSingleBoard: FBgetSingleBoard, FBgetAllPublicBoards:FBgetAllPublicBoards, FBpostNewBoard:FBpostNewBoard, FBdeleteBoard: FBdeleteBoard, FBeditBoard:FBeditBoard};
+  return {
+    FBgetSingleUserBoards:FBgetSingleUserBoards,
+    FBgetSingleBoard: FBgetSingleBoard,
+    FBgetAllPublicBoards:FBgetAllPublicBoards,
+    FBpostNewBoard:FBpostNewBoard,
+    FBdeleteBoard:FBdeleteBoard,
+    FBeditBoard:FBeditBoard
+  };
 
 });
