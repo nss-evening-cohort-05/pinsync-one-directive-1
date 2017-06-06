@@ -51,6 +51,7 @@ app.controller("AppAuthCtrl", function($location, $rootScope, $scope, AuthFactor
 
 	$scope.registerUserGoogle = () => {
 		AuthFactory.registerWithEmail($scope.auth).then((didRegister) => {
+			console.log("didRegister: ", didRegister);
 			$scope.auth.uid = didRegister.uid;
 			return UserFactory.addUserGoogle($scope.auth);
 		}, (error) => {

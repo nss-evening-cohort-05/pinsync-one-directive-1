@@ -23,7 +23,7 @@ app.factory("UserFactory", function($q, $http, FIREBASE_CONFIG) {
       $http.post(`${FIREBASE_CONFIG.databaseURL}/users.json`, 
         JSON.stringify({ 
           uid: authData.uid,
-          username: authData.displayName
+          username: authData.email
         })
       )
       .then((storeUserSuccess) => {

@@ -41,7 +41,6 @@ app.factory("AuthFactory", function($q, $http, $rootScope, FIREBASE_CONFIG) {
       var provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider)
         .then((authData) => {
-          console.log("in factory", authData);
           currentUserData = authData.user;
           resolve(currentUserData);
         }).catch((error) => {
