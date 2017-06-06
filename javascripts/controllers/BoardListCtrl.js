@@ -3,8 +3,13 @@ app.controller("BoardListCtrl", function($location, $rootScope, $routeParams, $s
 	$scope.isOwner = $routeParams.uid === $rootScope.user.uid ? true : false;
 	$scope.ownerUsername = "";
 	UserFactory.getUser($routeParams.uid)
-	.then(user => $scope.ownerUsername = user.username)
-	.catch(error => console.log("Error in getUser in BoardListCtrl", error));
+	.then((user) => {
+        $scope.ownerUsername = user.username
+        })
+	.catch((error, user) => {
+        console.log("Error in getUser in BoardListCtrl; user may be authenticated elsewhere", error);
+        }
+    );
 
     $scope.boards = [];
 
