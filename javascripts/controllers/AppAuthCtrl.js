@@ -25,6 +25,17 @@ app.controller("AppAuthCtrl", function($location, $rootScope, $scope, AuthFactor
 		});
 	};
 
+	let logMeInGoogle = () => {
+		AuthFactory.authenticateGoogle($scope.auth)
+			.then((user) => {
+				$rootScope.user = user;
+				$rootScope.user.username = user.email;
+				$location.url(`/boards/${$rootScope.user.uid}`);
+			}).catch((error) => {
+				console.log(error);
+			});
+	};
+
 	$scope.registerUser = () => {
 		AuthFactory.registerWithEmail($scope.auth).then((didRegister) => {
 			$scope.auth.uid = didRegister.uid;
@@ -33,13 +44,17 @@ app.controller("AppAuthCtrl", function($location, $rootScope, $scope, AuthFactor
 			console.log(error);
 		}).then((registerComplete) => {
 			logMeIn();
-		}).catch(() => {
+		}).catch((error) => {
 			console.log(error);
 		});
 	};
-
+	
 	$scope.loginUser = () => {
 		logMeIn();
 	};
+
+	$scope.loginUserGoogle = () => {
+		logMeInGoogle();
+	}
 
 });
